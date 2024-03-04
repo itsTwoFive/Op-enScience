@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">MEGA6: Molecular Evolutionary Genetics Analysis Version 6.0</title>
+				<funder ref="#_eAUqPM3 #_z4NMDUe">
+					<orgName type="full">National Institutes of Health</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Oxford University Press (OUP)</publisher>
+				<availability  status="unknown">
+					<licence/>
+				</availability>
+				<date type="published" when="2013-10-16">2013-10-16</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Koichiro</forename><surname>Tamura</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Glen</forename><surname>Stecher</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Daniel</forename><surname>Peterson</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Alan</forename><surname>Filipski</surname></persName>
+						</author>
+						<author role="corresp">
+							<persName><forename type="first">Sudhir</forename><surname>Kumar</surname></persName>
+							<email>s.kumar@asu.edu.</email>
+						</author>
+						<title level="a" type="main">MEGA6: Molecular Evolutionary Genetics Analysis Version 6.0</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">Molecular Biology and Evolution</title>
+						<idno type="ISSN">0737-4038</idno>
+						<idno type="eISSN">1537-1719</idno>
+						<imprint>
+							<publisher>Oxford University Press (OUP)</publisher>
+							<biblScope unit="volume">30</biblScope>
+							<biblScope unit="issue">12</biblScope>
+							<biblScope unit="page" from="2725" to="2729"/>
+							<date type="published" when="2013-10-16" />
+						</imprint>
+					</monogr>
+					<idno type="MD5">7BB8A2B63D2A1FBE70D4DBBB2ECB2F89</idno>
+					<idno type="DOI">10.1093/molbev/mst197</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.1-SNAPSHOT" ident="GROBID" when="2024-03-04T20:23+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>software</term>
+					<term>relaxed clocks</term>
+					<term>phylogeny</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>We announce the release of an advanced version of the Molecular Evolutionary Genetics Analysis (MEGA) software, which currently contains facilities for building sequence alignments, inferring phylogenetic histories, and conducting molecular evolutionary analysis. In version 6.0, MEGA now enables the inference of timetrees, as it implements the RelTime method for estimating divergence times for all branching points in a phylogeny. A new Timetree Wizard in MEGA6 facilitates this timetree inference by providing a graphical user interface (GUI) to specify the phylogeny and calibration constraints step-by-step. This version also contains enhanced algorithms to search for the optimal trees under evolutionary criteria and implements a more advanced memory management that can double the size of sequence data sets to which MEGA can be applied. Both GUI and command-line versions of MEGA6 can be downloaded from www. megasoftware.net free of charge.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The Molecular Evolutionary Genetics Analysis (MEGA) software is developed for comparative analyses of DNA and protein sequences that are aimed at inferring the molecular evolutionary patterns of genes, genomes, and species over time <ref type="bibr" target="#b3">(Kumar et al. 1994;</ref><ref type="bibr" target="#b8">Tamura et al. 2011)</ref>. MEGA is currently distributed in two editions: a graphical user interface (GUI) edition with visual tools for exploration of data and analysis results <ref type="bibr" target="#b8">(Tamura et al. 2011</ref>) and a command line edition (MEGA-CC), which is optimized for iterative and integrated pipeline analyses <ref type="bibr" target="#b2">(Kumar et al. 2012)</ref>.</p><p>In version 6.0, we have now added facilities for building molecular evolutionary trees scaled to time (timetrees), which are clearly needed by scientists as an increasing number of studies are reporting divergence times for species, strains, and duplicated genes (e.g., <ref type="bibr" target="#b1">Kumar and Hedges 2011;</ref><ref type="bibr" target="#b9">Ward et al. 2013)</ref>. For this purpose, we have implemented the RelTime method, which can be used for large numbers of sequences comprising contemporary data sets, is the fastest method among its peers, and is shown to perform well in computer simulations <ref type="bibr" target="#b7">(Tamura et al. 2012)</ref>. RelTime produces estimates of relative times of divergence for all branching points (nodes) in any phylogenetic tree without requiring knowledge of the distribution of the lineage rate variation and without using clock calibrations and associated distributions. Relative time estimates produced by MEGA will be useful for determining the ordering and spacing of sequence divergence events in species and gene family trees. The (relative) branch rates produced by RelTime will also enable users to determine the statistical distribution of evolutionary rates among lineages and detect rate differences between species and duplicated gene clades. In addition, relative times obtained using molecular data can be directly compared with the times from nonmolecular data (e.g., fossil record) to test independent biological hypotheses. The RelTime computation in MEGA6 is highly efficient in terms of both performance and memory required. For a nucleotide alignment of 765 sequences and 2,000 bp (data from <ref type="bibr" target="#b8">Tamura et al. [2011]</ref>), MEGA6 required just 43 min and 1 GB memory (including the calculation steps mentioned below). Both time and memory requirements increase linearly with the number of sequences in MEGA6 (fig. <ref type="figure">1</ref>). Figure <ref type="figure">2</ref> shows a timetree produced by MEGA6 and displayed in the Tree Explorer, which has been upgraded from previous versions of MEGA to display confidence intervals and to export relative divergence times and evolutionary rates for branches, along with absolute divergence times and confidence intervals (see below). The Tree Explorer also allows customization of the timetree display in many ways for producing publication quality images.</p><p>Using calibrations to translate relative times to absolute times: The relative times produced by the RelTime method can be directly converted into absolute times when a single known divergence time (calibration point) based on fossil or other information is available. This facility is incorporated in MEGA6 where a global time factor (f), which is computed from the given calibration point, converts all estimates of relative times (NTs) to absolute times (ATs) where AT x = f Â NT x for the internal node x. This approach is taken because NTs are already shown to be linearly related with the true time <ref type="bibr" target="#b7">(Tamura et al. 2012)</ref>. However, researchers often use multiple calibration points along with information ß The Author 2013. Published by Oxford University Press on behalf of the Society for Molecular Biology and Evolution. All rights reserved. For permissions, please e-mail: journals.permissions@oup.com on upper and/or lower bounds on one or more calibration points. In order to consider those constraints when estimating f, we have extended the RelTime implementation such that the estimate of f produces estimates of AT that satisfy the calibration constraints. In this case, if there are a range of values for f that do not violate the calibration constraints, then the midpoint of that range becomes the estimate of f. If one or more of the ATs fall outside the calibration constraints, then f is set so that their deviation from the constraints is minimized. In this case, NTs for the nodes with estimated ATs are adjusted to satisfy the calibration constraints, such that the estimated ATs for the offending nodes will lie between the minimum and maximum constraint times specified by the user. These adjustments to NTs are followed by re-optimizing all other NTs in the tree recursively using the standard RelTime algorithm. Figure <ref type="figure">2</ref> shows a timetree display with absolute times in the Tree Explorer, where 95% confidence intervals are shown for each node time (see below).</p><p>Confidence intervals for time estimates: MEGA6 also provides confidence intervals for relative and absolute divergence times, which are to assess the uncertainty in the estimated time and test biological hypotheses. In this formulation, variance contributed by the presence of rate variation among lineages (V R,i ) is combined with the estimated variance of relative node time (V NT,i ). We compute V R,i using the mean of the coefficient of variation of lineage rates over all internal nodes (C R ). It is obtained by first computing the mean () and standard deviation () of the node-to-tip distance for each internal node in the original tree with branch lengths. Then, C R = P [ i / i ] 2 /(n-3), where n is the number of sequences. For node i, V R,i = (NT i Â ˇCR ) 2 . The variance of node height (V H,i ) is estimated by the curvature method obtained during the maximum likelihood estimation of branch lengths, and thus relative NTs, for each node. Then, the variance of NT is V(NT i ) = V NT,i + V R,i , which is used to generate a 95% confidence interval. The bounds of this interval in terms of relative time are then multiplied by the factor f to provide confidence intervals on absolute times when calibrations are provided. It is important to note that this variance does not incorporate the uncertainty specified in the calibration times by the user through the specifications of minimum and maximum bounds, because the statistical distribution of the calibration uncertainty is rarely known. Therefore, we only use the range of calibration bounds during the estimation of f that converts relative times into absolute times, as described above, but this range does not affect the size of the confidence interval in any other way. In the future, we plan to enhance the estimation of f when users provide statistical distributions specifying the calibration uncertainty (see also, <ref type="bibr" target="#b0">Hedges and Kumar 2004)</ref>.</p><p>Timetree Wizard: In practice, the estimation of timetrees can be cumbersome, as one must provide a phylogeny, a sequence data set, and calibration points with constraints. To simplify this process, we have programmed a Timetree Wizard to enable users to provide all of these inputs through an intuitive step-by-step graphical interface. Figure <ref type="figure" target="#fig_1">3A</ref> shows a flowchart of the Timetree Wizard, where the user first provides a sequence alignment and a tree topology for use in building a timetree. MEGA6 validates these inputs by mapping (sequence) names in the topology to the names in the alignment data. If the topology contains a subset of sequences present in the alignment, MEGA automatically subsets the sequence data. Additional automatic subsetting of data is provided in the Analysis Preferences Dialog box (see fig. <ref type="figure" target="#fig_1">3E</ref>). In the next step, the user has the option to provide calibration constraints by using a new Calibration Editor in MEGA6 where calibration points are specified by 1) point-and-click on individual nodes in the tree display (fig. <ref type="figure" target="#fig_1">3B</ref>), 2) selecting namepairs from dropdown lists such that their most recent FIG. <ref type="figure">1</ref>. Time (A) and memory (B) needed for increasingly larger data sets for timetree calculations in MEGA6. Results shown are from an analysis of a nucleotide sequence alignment of 765 sequences and 2,000 bp. An increasingly larger number of sequences were sampled from this alignment to obtain the computational time (minutes) and computer memory (Megabytes, Mb). The time taken increases polynomially with the number of sequences (4 Â 10 À05 x 2 + 2.64 Â10 À2 x; R 2 = 0.99), where x is the number of sequences. However, a linear regression also fits well (0.048x; R 2 = 0.93). Similarly, the memory required increases linearly with the number of sequences (1.52x, R 2 = 0.99). All calculations were performed on the same computer with an Intel Xeon E5-2665 CPU, 128 GB RAM, and running Windows Server 2012 64-bit edition.</p><p>common ancestor on the topology refers to the desired node (fig. <ref type="figure" target="#fig_1">3C</ref>), and/or 3) uploading a text file containing calibration constraints in a simple format (fig. <ref type="figure" target="#fig_1">3D</ref>). If no calibration constraints are provided, then only relative times and related statistical measurements will be produced by MEGA6, but users still have an option to specify them in the Tree Explorer where the timetree containing relative times is displayed.</p><p>The next step in Timetree Wizard is for the user to select various analysis options in the Analysis Preferences Dialog, including the types of substitutions to consider (e.g., nucleotide, codon, or amino acid), evolutionary model describing the substitution pattern, distribution of substitution rates among sites (e.g., uniform or gamma-distributed rates and the presence of invariant sites), options for excluding certain alignment positions, and stringency for merging evolutionary clock rates during timetree analysis. These options are available in a context-dependent manner based on the type of sequence data being used in the analysis (e.g., nucleotide, coding vs. non-coding, or proteins). For coding nucleotide data, the users may subset the data based on the desired codon positions or ask MEGA to automatically translate codons into amino acids and conduct analysis at the protein sequence level. The data subset options also allow for handling of gaps and missing data, where one can choose to use all the data or exclude positions that contain a few or more gaps or missing data (e.g., Partial Deletion option). The stringency for merging clock rates option indicates the statistical significance to use for deciding conditions in which the ancestor and descendant rates will be the same (rate merging), which is important to reduce the number of rate parameters estimated and to avoid statistical over-fitting. Once these and other options are set, the RelTime computation begins.</p><p>Other enhancements in MEGA: In addition to the new timetree system in MEGA6, we have made several other useful enhancements. First, we have added the subtree-pruning-and-regrafting (SPR) algorithm to search for the optimal tree under the maximum likelihood (ML) and maximum parsimony (MP) criteria <ref type="bibr" target="#b6">(Swofford 1998;</ref><ref type="bibr" target="#b4">Nei and Kumar 2000)</ref>. In When focused on a tree node (left side), it shows the internal node identifier, and absolute or relative divergence time as appropriate; when focused on a branch (right side), it displays the local clock rate as well as the relative branch length. (C) A timetable exported using the displayed timetree, which shows the ancestor-descendant relationship along with relative node times, relative branch rates, absolute divergence times, and confidence intervals. Users can display internal node identifiers in the Tree Explorer as well as internal node names, which can be provided in the input topology file. On pressing the "Caption" in the Tree Explorer menu bar, MEGA produces the following text to inform the user about the methods, choices, and data used. Caption: The timetree shown was generated using the RelTime method. Divergence times for all branching points in the user-supplied topology were calculated using the Maximum Likelihood method based on the General Time Reversible model. Relative times were optimized and converted to absolute divergence times (shown next to branching points) based on user-supplied calibration constraints. Bars around each node represent 95% confidence intervals which were computed using the method described in <ref type="bibr">Tamura et al. (2013)</ref>. The estimated log likelihood value of the topology shown is À247671.60. A discrete Gamma distribution was used to model evolutionary rate differences among sites (4 categories, + G, parameter = 38.07). The tree is drawn to scale, with branch lengths measured in the relative number of substitutions per site. The analysis involved 446 nucleotide sequences. All positions with less than 95% site coverage were eliminated. That is, fewer than 5% alignment gaps, missing data, and ambiguous bases were allowed at any position. There were a total of 1,048 positions in the final data set. Evolutionary analyses were conducted in MEGA6 <ref type="bibr">(Tamura et al. 2013)</ref>.</p><p>addition, the tree-bisection-and-regrafting (TBR) algorithm is now included to search for the MP trees. These algorithms replace the close-neighbor-interchange (CNI) approach and allow for a more exhaustive search of the tree space <ref type="bibr" target="#b6">(Swofford 1998;</ref><ref type="bibr" target="#b4">Nei and Kumar 2000)</ref>. These algorithms were tested on simulated data sets that were analyzed in <ref type="bibr" target="#b8">Tamura et al. (2011)</ref>. The final trees produced by SPR heuristic search were, on average, more optimal than the true tree, a phenomenon explained by <ref type="bibr" target="#b5">Nei et al. (1998)</ref>. Therefore, MEGA6 heuristic searches are expected to perform well in practical data analysis.</p><p>We have also upgraded MEGA source code to increase the amount of memory that MEGA can address in 64-bit computers, where it can now use up to 4 GB memory, which is twice its previous limit. The source code upgrade has also increased the canvas size in Tree Explorer, which can now render trees with as many as 4,000 taxa. Finally, we have implemented a usage analytics system to assess options and analyses that are the most used. At the time of installation, users have a choice to participate in this effort, where we wish to generate a better understanding of the needs of the user community for prioritizing future developments. For the future, we have already planned the release of a full 64-bit version of MEGA as well as support for partitioned ML phylogenetic analyses. An outcome of this effort is a 64-bit command-line version of MEGA6 that supports the timetree analysis, which can be downloaded from www.mega software.net/reltime (last accessed October 19, 2013) and used for very large sequence data sets. The user may also upload constraints via formatted text files for which two types of formats are supported. In one, the calibration time constraints and the names of two taxa whose MRCA is the node to calibrate are given (panel C style). In the second, a node name in addition to the time constraints is given and this node name matches an internal node label that is included in the Newick tree file that contains the topology that is used for the timetree analysis. (E) Analysis Preferences Dialog enables the user to select methods, models, and data subset options.</p><p>Society for the Promotion of Science (JSPS) grants-in-aid for scientific research to K.T.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>FIG. 2.(A) Timetree inferred in MEGA6 and shown in the Tree Explorer, where it is displayed with divergence times and their respective 95% confidence intervals. A scale bar for absolute divergence times is shown. (B) An information panel that can be made visible by pressing the icon marked with an "i". When focused on a tree node (left side), it shows the internal node identifier, and absolute or relative divergence time as appropriate; when focused on a branch (right side), it displays the local clock rate as well as the relative branch length. (C) A timetable exported using the displayed timetree, which shows the ancestor-descendant relationship along with relative node times, relative branch rates, absolute divergence times, and confidence intervals. Users can display internal node identifiers in the Tree Explorer as well as internal node names, which can be provided in the input topology file. On pressing the "Caption" in the Tree Explorer menu bar, MEGA produces the following text to inform the user about the methods, choices, and data used. Caption: The timetree shown was generated using the RelTime method. Divergence times for all branching points in the user-supplied topology were calculated using the Maximum Likelihood method based on the General Time Reversible model. Relative times were optimized and converted to absolute divergence times (shown next to branching points) based on user-supplied calibration constraints. Bars around each node represent 95% confidence intervals which were computed using the method described inTamura et al. (2013). The estimated log likelihood value of the topology shown is À247671.60. A discrete Gamma distribution was used to model evolutionary rate differences among sites (4 categories, + G, parameter = 38.07). The tree is drawn to scale, with branch lengths measured in the relative number of substitutions per site. The analysis involved 446 nucleotide sequences. All positions with less than 95% site coverage were eliminated. That is, fewer than 5% alignment gaps, missing data, and ambiguous bases were allowed at any position. There were a total of 1,048 positions in the final data set. Evolutionary analyses were conducted in MEGA6(Tamura et al. 2013).</figDesc><graphic coords="3,57.15,46.15,480.91,255.86" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>FIG. 3 .</head><label>3</label><figDesc>FIG. 3. (A)The flowchart of the Timetree Wizard. When launching the timetree analysis, a user first provides a data file containing a sequence alignment and another file containing a phylogeny (topology). (B) The Calibration Editor is invoked when the user needs to specify calibration constraints, which contains facilities to mark calibrations on top of the user-specified topology. (C) Users may also specify calibrations selecting two sequence names whose most recent common ancestor (MRCA) points to the node to use for calibration. (D) The user may also upload constraints via formatted text files for which two types of formats are supported. In one, the calibration time constraints and the names of two taxa whose MRCA is the node to calibrate are given (panel C style). In the second, a node name in addition to the time constraints is given and this node name matches an internal node label that is included in the Newick tree file that contains the topology that is used for the timetree analysis. (E) Analysis Preferences Dialog enables the user to select methods, models, and data subset options.</figDesc><graphic coords="4,69.17,46.15,457.05,354.56" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="2,105.22,46.15,384.65,180.40" type="bitmap" /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_0"><p>at Arizona State University Libraries on November 27, 2013 http://mbe.oxfordjournals.org/ Downloaded from</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_1"><p>Molecular Evolutionary Genetics Analysis Version 6.0 . doi:10.1093/molbev/mst197 MBE at Arizona State University Libraries on November 27, 2013 http://mbe.oxfordjournals.org/ Downloaded from</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head>Acknowledgments</head><p>We thank <rs type="person">Oscar Murillo</rs> for extensive help in testing the RelTime computations. We would also like to thank <rs type="person">Sayaka Miura</rs>, <rs type="person">Anna Freydenzon</rs>, <rs type="person">Mike Suleski</rs>, and <rs type="person">Abediyi Banjoko</rs> for their invaluable feedback. This work was supported from research grants from <rs type="funder">National Institutes of Health</rs> (<rs type="grantNumber">HG002096-12</rs> to S.K. and <rs type="grantNumber">HG006039-03</rs> to A.F.) and Japan</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funding" xml:id="_eAUqPM3">
+					<idno type="grant-number">HG002096-12</idno>
+				</org>
+				<org type="funding" xml:id="_z4NMDUe">
+					<idno type="grant-number">HG006039-03</idno>
+				</org>
+			</listOrg>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Precision of molecular time estimates</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">B</forename><surname>Hedges</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kumar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Trends Genet</title>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="page" from="242" to="247" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Timetree2: Species divergence times on the iPhone</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">B</forename><surname>Hedges</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Bioinformatics</title>
+		<imprint>
+			<biblScope unit="volume">27</biblScope>
+			<biblScope unit="page" from="2023" to="2024" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">MEGA-CC: computing core of molecular evolutionary genetics analysis program for automated and iterative data analysis</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Stecher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Peterson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Tamura</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Bioinformatics</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="page" from="2685" to="2686" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">MEGA: molecular evolutionary genetics analysis software for microcomputers</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Tamura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Nei</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput Appl Biosci</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page" from="189" to="191" />
+			<date type="published" when="1994">1994</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Nei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kumar</surname></persName>
+		</author>
+		<title level="m">Molecular evolution and phylogenetics</title>
+		<meeting><address><addrLine>Oxford; New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>Oxford University Press</publisher>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">The optimization principle in phylogenetic analysis tends to give incorrect topologies when the number of nucleotides or amino acids used is small</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Nei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Takahashi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proc Natl Acad Sci U S A</title>
+		<imprint>
+			<biblScope unit="volume">95</biblScope>
+			<biblScope unit="page" from="12390" to="12397" />
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><surname>Swofford</surname></persName>
+		</author>
+		<title level="m">Paup*: phylogenetic analysis using parsimony (and other methods)</title>
+		<meeting><address><addrLine>Sunderland (MA)</addrLine></address></meeting>
+		<imprint>
+			<publisher>Sinauer Associates</publisher>
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Estimating divergence times in large molecular phylogenies</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Tamura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">U</forename><surname>Battistuzzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Billing-Ross</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Murillo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Filipski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kumar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proc Natl Acad Sci U S A</title>
+		<imprint>
+			<biblScope unit="volume">109</biblScope>
+			<biblScope unit="page" from="19333" to="19338" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">MEGA5: molecular evolutionary genetics analysis using maximum likelihood, evolutionary distance, and maximum parsimony methods</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Tamura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Peterson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Peterson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Stecher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Nei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kumar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Mol Biol Evol</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="page" from="2731" to="2739" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Estimating the rate of intersubtype recombination in early hiv-1 group m strains</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">J</forename><surname>Ward</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Lycett</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Kalish</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rambaut</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Leigh</forename><surname>Brown</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">J</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J Virol</title>
+		<imprint>
+			<biblScope unit="volume">87</biblScope>
+			<biblScope unit="page" from="1967" to="1973" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

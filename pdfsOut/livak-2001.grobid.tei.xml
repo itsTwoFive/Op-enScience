@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Analysis of Relative Gene Expression Data Using Real-Time Quantitative PCR and the 2−ΔΔCT Method</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Elsevier BV</publisher>
+				<availability  status="unknown">
+					<licence/>
+				</availability>
+				<date type="published" when="2001-12">2001-12</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Kenneth</forename><forename type="middle">J</forename><surname>Livak</surname></persName>
+						</author>
+						<author role="corresp">
+							<persName><forename type="first">Thomas</forename><forename type="middle">D</forename><surname>Schmittgen</surname></persName>
+							<email>schmittg@mail.wsu.edu</email>
+						</author>
+						<title level="a" type="main">Analysis of Relative Gene Expression Data Using Real-Time Quantitative PCR and the 2−ΔΔCT Method</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">Methods</title>
+						<title level="j" type="abbrev">Methods</title>
+						<idno type="ISSN">1046-2023</idno>
+						<imprint>
+							<publisher>Elsevier BV</publisher>
+							<biblScope unit="volume">25</biblScope>
+							<biblScope unit="issue">4</biblScope>
+							<biblScope unit="page" from="402" to="408"/>
+							<date type="published" when="2001-12" />
+						</imprint>
+					</monogr>
+					<idno type="MD5">83840A57835B0CE12F358CA237E48AE4</idno>
+					<idno type="DOI">10.1006/meth.2001.1262</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.1-SNAPSHOT" ident="GROBID" when="2024-03-04T20:23+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>of the target gene relative to some reference group The two most commonly used methods to analyze data from such as an untreated control or a sample at time zero real-time, quantitative PCR experiments are absolute quantificain a time-course study.</p><p>tion and relative quantification. Absolute quantification deter-Absolute quantification should be performed in situmines the input copy number, usually by relating the PCR signal to a standard curve. Relative quantification relates the PCR signal ations where it is necessary to determine the absolute of the target transcript in a treatment group to that of another transcript copy number. Absolute quantification has sample such as an untreated control. The 2 Ϫ⌬⌬CT method is a been combined with real-time PCR and numerous reconvenient way to analyze the relative changes in gene expression ports have appeared in the literature (6-9) including from real-time quantitative PCR experiments. The purpose of this two articles in this issue (10,<ref type="bibr" target="#b12">11)</ref>. In some situations, report is to present the derivation, assumptions, and applications it may be unnecessary to determine the absolute tranof the 2 Ϫ⌬⌬CT method. In addition, we present the derivation and script copy number and reporting the relative change applications of two variations of the 2 Ϫ⌬⌬CT method that may be useful in the analysis of real-time, quantitative PCR data. ᭧ 2001 in gene expression will suffice. For example, stating Elsevier Science (USA) that a given treatment increased the expression of Key Words: reverse transcription polymerase chain reaction; gene x by 2.5-fold may be more relevant than stating quantitative polymerase chain reaction; relative quantification; that the treatment increased the expression of gene x real-time polymerase chain reaction; Taq Man.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>from 1000 copies to 2500 copies per cell.</p><p>Quantifying the relative changes in gene expression using real-time PCR requires certain equations, assumptions, and the testing of these assumptions to Reserve transcription combined with the polymerproperly analyze the data. The 2 Ϫ⌬⌬C T method may be ase chain reaction (RT-PCR) has proven to be a powerused to calculate relative changes in gene expression ful method to quantify gene expression <ref type="bibr" target="#b1">(1)</ref><ref type="bibr">(2)</ref><ref type="bibr" target="#b3">(3)</ref>. Realdetermined from real-time quantitative PCR experitime PCR technology has been adapted to perform ments. Derivation of the 2 Ϫ⌬⌬C T equation, including quantitative RT-PCR <ref type="bibr" target="#b4">(4,</ref><ref type="bibr" target="#b5">5)</ref>. Two different methods of assumptions, experimental design, and validation analyzing data from real-time, quantitative PCR extests, have been described in Applied Biosystems User periments exist: absolute quantification and relative Bulletin No. 2 (P/N 4303859). Analyses of gene expresquantification. Absolute quantification determines the sion data using the 2 Ϫ⌬⌬C T method have appeared in input copy number of the transcript of interest, usually the literature <ref type="bibr" target="#b5">(5,</ref><ref type="bibr" target="#b6">6)</ref>. The purpose of this report is to by relating the PCR signal to a standard curve. Relapresent the derivation of the 2 Ϫ⌬⌬C T method, assumptive quantification describes the change in expression tions involved in using the method, and applications of this method for the general literature. In addition, we present the derivation and application of two variations of the 2 Ϫ⌬⌬C T method that may be useful in the or 1. THE 2 Ϫ⌬⌬C T METHOD</p><formula xml:id="formula_0">X N ϫ (1 ϩ E ) ⌬C T ϭ K, [6] 1.1. Derivation of the 2 Ϫ⌬⌬C T Method</formula><p>where X N is equal to the normalized amount of target The equation that describes the exponential amplifi-(X 0 /R 0 ) and ⌬C T is equal to the difference in threshold cation of PCR is cycles for target and reference (C T,X Ϫ C T,R ).</p><p>Rearranging gives the expression</p><formula xml:id="formula_1">X n ϭ X 0 ϫ (1 ϩ E X ) n , [1] X N ϭ K ϫ (1 ϩ E ) Ϫ⌬C T .</formula><p>[7] where X n is the number of target molecules at cycle</p><p>The final step is to divide the X N for any sample q by n of the reaction, X 0 is the initial number of target the X N for the calibrator (cb): molecules. E X is the efficiency of target amplification, and n is the number of cycles. The threshold cycle (C T ) indicates the fractional cycle number at which the</p><formula xml:id="formula_2">X N,q X N,cb ϭ K ϫ (1 ϩ E ) Ϫ⌬C T,q K ϫ (1 ϩ E ) Ϫ⌬C T,cb ϭ (1 ϩ E ) Ϫ⌬⌬C T .</formula><p>[8] amount of amplified target reaches a fixed threshold. Thus,</p><p>Here Ϫ⌬⌬C T ϭ Ϫ(⌬C T,q Ϫ ⌬C T,cb ).</p><p>For amplicons designed to be less than 150 bp and for</p><formula xml:id="formula_3">X T ϭ X 0 ϫ (1 ϩ E X ) C T,X ϭ K X [2]</formula><p>which the primer and Mg 2+ concentrations have been properly optimized, the efficiency is close to one. Therewhere X T is the threshold number of target molecules, fore, the amount of target, normalized to an endogenous C T,X is the threshold cycle for target amplification, and reference and relative to a calibrator, is given by K X is a constant. A similar equation for the endogenous reference (internal control gene) reaction is amount of target ϭ 2 Ϫ⌬⌬C T .</p><p>[9]</p><formula xml:id="formula_4">R T ϭ R 0 ϫ (1 ϩ E R ) C T,R ϭ K R , [3] 1.2</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>. Assumptions and Applications of the 2 Ϫ⌬⌬C T Method</head><p>For the ⌬⌬C T calculation to be valid, the amplification where R T is the threshold number of reference moleefficiencies of the target and reference must be approxicules, R 0 is the initial number of reference molecules, mately equal. A sensitive method for assessing if two E R is the efficiency of reference amplification, C T,R is amplicons have the same efficiency is to look at how the threshold cycle for reference amplification, and K R ⌬C T varies with template dilution. Figure <ref type="figure">1</ref> shows the is a constant.</p><p>Dividing X T by R T gives the expression</p><formula xml:id="formula_5">X T R T ϭ X 0 ϫ (1 ϩ E X ) C T,X R 0 ϫ (1 ϩ E R ) C T,R ϭ K X K R ϭ K. [4]</formula><p>For real-time amplification using TaqMan probes, the exact values of X T and R T depend on a number of factors including the reporter dye used in the probe, the sequence context effects on the fluorescence properties of the probe, the efficiency of probe cleavage, purity of the probe, and setting of the fluorescence threshold. Therefore, the constant K does not have to be equal to </p><formula xml:id="formula_6">X 0 R 0 ϫ (1 ϩ E ) C T,X ϪC T,R ϭ K, [<label>5</label></formula><formula xml:id="formula_7">]</formula><p>were fit using least-squares linear regression analysis (N ϭ 3).</p><p>results of an experiment where a cDNA preparation change in gene expression relative to an untreated control, for example, if one wanted to determine the expres-was diluted over a 100-fold range. For each dilution sample, amplifications were performed using primers sion of a particular mRNA in an organ. In these cases, the calibrator may be the expression of the same mRNA and fluorogenic probes for c-myc and GAPDH. The average C T was calculated for both c-myc and GAPDH and in another organ. Table <ref type="table" target="#tab_1">1</ref> presents mean C T values determined for c-myc and GAPDH transcripts in total the ⌬C T (C T,myc Ϫ C T,GAPDH ) was determined. A plot of the log cDNA dilution versus ⌬C T was made (Fig. <ref type="figure">1</ref>). RNA samples from brain and kidney. The brain was arbitrarily chosen as the calibrator in this example. The If the absolute value of the slope is close to zero, the efficiencies of the target and reference genes are simi-amount of c-myc, normalized to GAPDH and relative to brain, is reported. Although the relative quantitative lar, and the ⌬⌬C T calculation for the relative quantification of target may be used. As shown in Fig. <ref type="figure">1</ref>, the slope method can be used to make this type of tissue comparison, biological interpretation of the results is complex. of the line is 0.0471; therefore, the assumption holds and the ⌬⌬C T method may be used to analyze the data. The single relative quantity reported actually reflects variation in both target and reference transcripts across If the efficiencies of the two amplicons are not equal, then the analysis may need to be performed via the a variety of cell types that might be present in any particular tissue. absolute quantification method using standard curves. Alternatively, new primers can be designed and/or optimized to achieve a similar efficiency for the target and 1.4. Data Analysis Using the 2 Ϫ⌬⌬C T Method reference amplicons.</p><p>The C T values provided from real-time PCR instrumentation are easily imported into a spreadsheet pro-1.3. Selection of Internal Control and Calibrator for the gram such as Microsoft Excel. To demonstrate the anal-2 Ϫ⌬⌬C T Method ysis, data are reported from a quantitative gene expression experiment and a sample spreadsheet is de-The purpose of the internal control gene is to normalize the PCRs for the amount of RNA added to the re-scribed (Fig. <ref type="figure">2</ref>). The change in expression of the fos-glomyc target gene normalized to ␤ -actin was monitored verse transcription reactions. We have found that standard housekeeping genes usually suffice as inter-over 8 h. Triplicate samples of cells were collected at each time point. Real-time PCR was performed on the nal control genes. Suitable internal controls for realtime quantitative PCR include GAPDH, ␤ -actin, ␤ 2 -corresponding cDNA synthesized from each sample.</p><p>The data were analyzed using Eq. [9], where ⌬⌬C T ϭ microglobulin, and rRNA. Other housekeeping genes will undoubtedly work as well. It is highly recom-(C T,Target Ϫ C T,Actin ) Time x Ϫ (C T,Target Ϫ C T,Actin ) Time 0 . Time</p><p>x is any time point and Time 0 represents the 1ϫ expres-mended that the internal control gene be properly validated for each experiment to determine that gene ex-sion of the target gene normalized to ␤ -actin. The mean C T values for both the target and internal control genes pression is unaffected by the experimental treatment. A method to validate the effect of experimental treat-were determined at time zero (Fig. <ref type="figure">2</ref>, column 8) and were used in Eq. [9]. The fold change in the target gene, ment on the expression of the internal control gene is described in Section 2.2. normalized to ␤ -actin and relative to the expression at time zero, was calculated for each sample using Eq. [9] The choice of calibrator for the 2 Ϫ⌬⌬C T method depends on the type of gene expression experiment that (Fig. <ref type="figure">2</ref>, column 9). The mean, SD, and CV are then determined from the triplicate samples at each time one has planned. The simplest design is to use the untreated control as the calibrator. Using the 2 Ϫ⌬⌬C T point. Using this analysis, the value of the mean fold change at time zero should be very close to one (i.e., method, the data are presented as the fold change in gene expression normalized to an endogenous reference since 2 0 ϭ 1). We have found the verification of the mean fold change at time zero to be a convenient method gene and relative to the untreated control. For the untreated control sample, ⌬⌬C T equals zero and 2 0 equals to check for errors and variation among the triplicate samples. A value that is very different from one sug-one, so that the fold change in gene expression relative to the untreated control equals one, by definition. For gests a calculation error in the spreadsheet or a very high degree of experimental variation. the treated samples, evaluation of 2 Ϫ⌬⌬C T indicates the fold change in gene expression relative to the untreated In the preceding example, three separate RNA preparations were made for each time point and carried control. Similar analysis could be applied to study the time course of gene expression where the calibrator through the analysis. Therefore, it made sense to treat each sample separately and average the results after sample represents the amount of transcript that is expressed at time zero.</p><p>the 2 Ϫ⌬⌬C T calculation. When replicate PCRs are run on the same sample, it is more appropriate to average Situations exist where one may not compare the C T data before performing the 2 Ϫ⌬⌬C T calculation. Ex-(GAPDH) were amplified in separate wells. There is no reason to pair any particular c-myc well with any actly how the averaging is performed depends on if the target and reference are amplified in separate wells particular GAPDH well. Therefore, it makes sense to average the c-myc and GAPDH C T values separately or in the same well. Table <ref type="table" target="#tab_1">1</ref> presents data from an experiment where the target (c-myc) and reference before performing the ⌬C T calculation. The variance a Total RNA from human brain and kidney were purchased from Clontech. Using reverse transcriptase, cDNA was synthesized from 1 g total RNA. Aliquots of cDNA were used as template for real-time PCR reactions containing either primers and probe for c-myc or primers and probe for GAPDH. Each reaction contained cDNA derived from 10 ng total RNA. Six replicates of each reaction were performed. estimated from the replicate C T values is carried of an arbitrary constant. This gives results equivalent to those reported in Fig. <ref type="figure">2</ref> where C T values for nonrepli-through to the final calculation of relative quantities using standard propagation of error methods. One diffi-cated samples were carried through the entire 2 Ϫ⌬⌬C T calculation before averaging. Alternatively, it is possi-culty is that C T is exponentially related to copy number (see Section 4 below). Thus, in the final calculation, the ble to report results with the calibrator quantity defined as 1ϫ without any error. In this case, the error esti-error is estimated by evaluating the 2 Ϫ⌬⌬C T term using ⌬⌬C T plus the standard deviation and ⌬⌬C T minus the mated for the average ⌬C T,cb value must be propagated into each of the ⌬⌬C T values for the test samples. In standard deviation. This leads to a range of values that is asymmetrically distributed relative to the average Table <ref type="table" target="#tab_1">1</ref>, the ⌬⌬C T value for the kidney sample would become Ϫ2.50 Ϯ 0.20 and the normalized c-myc amount value. The asymmetric distribution is a consequence of converting the results of an exponential process into a would be 5.6ϫ with a range of 4.9 to 6.5. Results for brain would be reported as 1ϫ without any error. linear comparison of amounts.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FIG. 2. Sample spreadsheet of data analysis using the 2 Ϫ⌬⌬C</head><p>By using probes labeled with distinguishable reporter dyes, it is possible to run the target and reference amplifications in the same well. Table <ref type="table" target="#tab_2">2</ref> presents data from 2. THE 2 Ϫ⌬C Ј T METHOD</p><p>an experiment where the target (c-myc) and reference (GAPDH) were amplified in the same well. In any par-2.1. Derivation of the 2 Ϫ⌬C Ј T Method ticular well, we know that the c-myc reaction and the GAPDH reaction had exactly the same cDNA input.</p><p>Normalizing to an endogenous reference provides a method for correcting results for differing amounts of Therefore, it makes sense to calculate ⌬C T separately for each well. These ⌬C T values can then be averaged input RNA. One hallmark of the 2 Ϫ⌬⌬C T method is that it uses data generated as part of the real-time PCR before proceeding with the 2 Ϫ⌬⌬C T calculation. Again, the estimated error is given as an asymmetric range of experiment to perform this normalization function. This is particularly attractive when it is not practical values, reflecting conversion of an exponential variable to a linear comparison.</p><p>to measure the amount of input RNA by other methods. Such situations include when only limited amounts of In Tables <ref type="table" target="#tab_1">1</ref> and<ref type="table" target="#tab_2">2</ref>, the estimated error has not been increased in proceeding from the ⌬C T column to the RNA are available or when high-throughput processing of many samples is desired. It is possible, though, to ⌬⌬C T column. This is because we have decided to display the data with error shown both in the calibrator normalize to some measurement external to the PCR experiment. The most common method for normaliza-and in the test sample. Subtraction of the average ⌬C T,cb to determine the ⌬⌬C T value is treated as subtraction tion is to use UV absorbance to determine the amount a An experiment like that described in Table <ref type="table" target="#tab_1">1</ref> was performed except the reactions contained primers and probes for both c-myc and GAPDH. The probe for c-myc was labeled with the reporter dye FAM and the probe for GAPDH was labeled with the reporter dye JOE. Because of the different reporter dyes, the real-time PCR signals for c-myc and GAPDH can be distinguished even though both amplifications are occurring in the same well.</p><p>of RNA added to a cDNA reaction. PCRs are then set equation where ⌬CЈ T ϭ C T,Time x Ϫ C T,Time 0 (Fig. <ref type="figure">3</ref>). A statistically significant relationship exists between the up using cDNA derived from the same amount of input RNA. One example of using this external normalization treatment and expression of GAPDH but not for ␤ 2microglobulin (Fig. <ref type="figure">3</ref>). Therefore, ␤ 2 -microglobulin is to study the effect of experimental treatment on the expression of an endogenous reference to determine if makes a suitable internal control in quantitative serum stimulation studies while GAPDH does not. This exam-the internal control is affected by treatment. Thus, the target gene and the endogenous reference are one in ple demonstrates how the 2 Ϫ⌬C Ј T method may be used to analyze relative gene expression data when only one the same. In this case, Eq. [2] is not divided by Eq. <ref type="bibr" target="#b3">[3]</ref> and Eq. <ref type="bibr" target="#b5">[5]</ref> becomes gene is being studied.</p><formula xml:id="formula_8">X 0 ϫ (1 ϩ E X ) C T,X ϭ K X .</formula><p>[10]</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">STATISTICAL ANALYSIS OF REAL-TIME PCR DATA</head><p>Rearranging gives the expression</p><p>The endpoint of real-time PCR analysis is the thresh-</p><formula xml:id="formula_9">X 0 ϭ K X ϫ (1 ϩ E X ) ϪC T,X .</formula><p>[ 1 1 ] old cycle or C T . The C T is determined from a log-linear plot of the PCR signal versus the cycle number. Thus, Now, dividing X 0 for any sample q by the X 0 for the C T is an exponential and not a linear term. For this calibrator (cb) gives reason, any statistical presentation using the raw</p><formula xml:id="formula_10">C T X 0,q X 0,cb ϭ K X ϫ (1 ϩ E X ) ϪC T,q K X ϫ (1 ϩ E X ) ϪC T,cb ϭ (1 ϩ E X ) Ϫ⌬C Ј T , [12]</formula><p>where ⌬CЈ T is equal to C T,q Ϫ C T,cb . The prime is used to distinguish this expression from the previous ⌬C T calculation (see Eq. <ref type="bibr" target="#b6">[6]</ref>) that involved subtraction of C T values for target and reference.</p><p>As stated in Section 1.1, if properly optimized, the efficiency is close to one. The amount of endogenous reference relative to a calibrator then becomes 2 Ϫ⌬C Ј T .</p><p>[13] 2.2. Application of the 2 Ϫ⌬C Ј T Method An appropriate application of the 2 Ϫ⌬C Ј T method is to determine the effect of the experimental treatment on the expression of a candidate internal control gene. To demonstrate this analysis, serum starvation and induction experiments were performed <ref type="bibr" target="#b8">(7)</ref> globulin and GAPDH are presented using the 2 Ϫ⌬C Ј T values should be avoided. As described within the previ-should be used. Otherwise, presentation of the relative gene expression should suffice. Relative quantification ous sections of this article, presentation of relative PCR may be easier to perform than the absolute method data is most often calculated along with an internal because the use of standard curves is not required. control and/or calibrator sample and is rarely presented</p><p>The equations provided herein should be sufficient for as the C T . An exception is when one is interested in an investigator to analyze quantitative gene expression examining the sample-to-sample variation among replidata using relative quantification. To summarize the cate reactions.</p><p>important steps in the design and evaluation of the To demonstrate this, 96 replicate reactions of the experiment: (i) select an internal control gene, (ii) valiidentical cDNA were performed using real-time PCR date the internal control to determine that it is not and SYBR Green detection. A master mixture conaffected by experimental treatment, and (iii) PCR on taining all of the ingredients was pipetted into individperform dilutions of RNA or cDNA for both the target ual tubes of a 96-well reaction plate. The samples were and internal control genes to ensure that the efficiencies subjected to real-time PCR and the individual C T values are similar. Finally, statistical data should be converted were determined. To examine the intrasample variato the linear form by the 2 ϪC T calculation and should tion, the mean Ϯ SD was determined from the 96 samnot be presented by the raw C T values. ples. If calculated from the raw C T the mean Ϯ SD was 20.0 Ϯ 0.194 with a CV of 0.971%. However, when the individual C T values were converted to the linear form</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>FIG. 2. Sample spreadsheet of data analysis using the 2 Ϫ⌬⌬C T method. The fold change in expression of the target gene ( fos-glo-myc) relative to the internal control gene (␤ -actin) at various time points was studied. The samples were analyzed using real-time quantitative PCR and the C t data were imported into Microsoft Excel. The mean fold change in expression of the target gene at each time point was calculated using Eq. [9], where ⌬⌬C T ϭ (C T,Target Ϫ C ,Actin ) Time x Ϫ (C T,Target Ϫ C ,Actin ) Time 0 . The mean C T at time zero are shown (colored boxes) as is a sample calculation for the fold change using 2 Ϫ⌬⌬C T (black box).</figDesc><graphic coords="4,28.89,389.16,496.00,240.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>TABLE 1</head><label>1</label><figDesc>Treatment of Replicate Data Where Target and Reference Are Amplified in Separate Wells a</figDesc><table><row><cell>⌬C T (Avg. c-myc C T Ϫ</cell><cell>⌬⌬C T (Avg. ⌬C T</cell><cell>Normalized c-myc amount</cell></row></table><note><p>Average 27.03 Ϯ 0.06 22.66 Ϯ 0.08 4.37 Ϯ 0.10 Ϫ2.50 Ϯ 0.10 5.6 (5.3-6.0)</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>TABLE 2</head><label>2</label><figDesc>Treatment of Replicate Data Where Target and Reference are Amplified in the Same Well a</figDesc><table><row><cell></cell><cell>c-myc</cell><cell></cell><cell>⌬C T (Avg. c-myc C T Ϫ</cell><cell>⌬⌬C T (Avg. ⌬C T</cell><cell>Normalized c-myc amount</cell></row><row><cell>Tissue</cell><cell>C T</cell><cell>GAPDH C T</cell><cell>Avg. GAPDH C T )</cell><cell>Ϫ Avg. ⌬C T,Brain )</cell><cell>relative to brain 2 Ϫ⌬⌬C T</cell></row><row><cell>Brain</cell><cell>32.38</cell><cell>25.07</cell><cell>7.31</cell><cell></cell><cell></cell></row><row><cell></cell><cell>32.08</cell><cell>25.29</cell><cell>6.79</cell><cell></cell><cell></cell></row><row><cell></cell><cell>32.35</cell><cell>25.32</cell><cell>7.03</cell><cell></cell><cell></cell></row><row><cell></cell><cell>32.08</cell><cell>25.24</cell><cell>6.84</cell><cell></cell><cell></cell></row><row><cell></cell><cell>32.34</cell><cell>25.17</cell><cell>7.17</cell><cell></cell><cell></cell></row><row><cell></cell><cell>32.13</cell><cell>25.29</cell><cell>6.84</cell><cell></cell><cell></cell></row><row><cell>Average</cell><cell></cell><cell></cell><cell>6.93 Ϯ 0.16</cell><cell>0.00 Ϯ 0.16</cell><cell>1.0 (0.9-1.1)</cell></row><row><cell>Kidney</cell><cell>28.73</cell><cell>24.30</cell><cell>4.43</cell><cell></cell><cell></cell></row><row><cell></cell><cell>28.84</cell><cell>24.32</cell><cell>4.52</cell><cell></cell><cell></cell></row><row><cell></cell><cell>28.51</cell><cell>24.31</cell><cell>4.20</cell><cell></cell><cell></cell></row><row><cell></cell><cell>28.86</cell><cell>24.25</cell><cell>4.61</cell><cell></cell><cell></cell></row><row><cell></cell><cell>28.86</cell><cell>24.34</cell><cell>4.52</cell><cell></cell><cell></cell></row><row><cell></cell><cell>28.70</cell><cell>24.18</cell><cell>4.52</cell><cell></cell><cell></cell></row><row><cell>Average</cell><cell></cell><cell></cell><cell>4.47 Ϯ 0.14</cell><cell>Ϫ2.47 Ϯ 0.14</cell><cell>5.5 (5.0-6.1)</cell></row></table></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">the mean Ϯ SD was 9</title>
+		<author>
+			<persName><surname>Ϫc T</surname></persName>
+		</author>
+		<imprint>
+			<biblScope unit="volume">08</biblScope>
+		</imprint>
+	</monogr>
+	<note>7 with a CV of 13.5%. As demonstrated</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">by this simple example, reporting the data obtained S. E</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">D</forename><surname>Murphy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Herzog</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">B</forename><surname>Rudick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">T</forename><surname>Fojo</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Bates</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Biochemistry</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="page" from="10351" to="10356" />
+			<date type="published" when="1990">1990</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Converting the individual data</title>
+		<author>
+			<persName><forename type="first">C T ;</forename><surname>Noonan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">E</forename><surname>Beck</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Holzmayer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">A</forename><surname>Chin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Wunder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">S</forename><surname>Andrulis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">L</forename><surname>Gazdar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">F</forename><surname>Willman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">L</forename><surname>Griffith</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Von-Hoff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">D</forename><surname>Robinson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">B</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. Natl. Acad. Sci. to a linear form using 2 ϪC T more accurately depicts the USA 87</title>
+		<meeting>Natl. Acad. Sci. to a linear form using 2 ϪC T more accurately depicts the USA 87</meeting>
+		<imprint>
+			<date type="published" when="1990">1990</date>
+			<biblScope unit="page" from="7160" to="7164" />
+		</imprint>
+	</monogr>
+	<note>individual variation among replicate reactions</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">T</forename><surname>Horikoshi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Cancer Res</title>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="page" from="108" to="116" />
+			<date type="published" when="1992">1992</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">A</forename><surname>Heid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Stevens</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">J</forename><surname>Livak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">M</forename><surname>Williams</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Genome Res</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="986" to="994" />
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">CONCLUDING REMARKS Anal</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Winer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">K</forename><surname>Jung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Shackel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">M</forename><surname>Williams</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Biochem</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="41" to="49" />
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Experimental design and data analysis from real</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">D</forename><surname>Schmittgen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">A</forename><surname>Zakrajsek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">G</forename><surname>Mills</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Gorn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">;</forename><forename type="middle">M J</forename><surname>Singer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">W</forename><surname>Reed</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Anal. Biochem</title>
+		<imprint>
+			<biblScope unit="volume">285</biblScope>
+			<biblScope unit="page" from="194" to="204" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">quantitative PCR experiments may be achieved</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">D</forename><surname>Schmittgen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">A</forename><surname>Zakrajsek</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Biochem. Biophys. Methods</title>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="page" from="69" to="81" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+	<note>using either relative or absolute quantification</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">designing quantitative gene expression studies using</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">B</forename><surname>Shyu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Mol. Cell. Biol</title>
+		<editor>
+			<persName><forename type="first">V</forename><forename type="middle">R</forename></persName>
+		</editor>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page" from="83" to="87" />
+			<date type="published" when="1994">1994. 1999</date>
+		</imprint>
+	</monogr>
+	<note>Science</note>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">real-time PCR</title>
+		<imprint/>
+	</monogr>
+	<note>the first question that an investigator 10</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">should ask is how should the data be presented</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Giulietti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Overbergh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Valckx</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Decallone</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Bouillon</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Methods</title>
+		<editor>
+			<persName><forename type="first">R</forename><surname>Mathieu</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">C</forename></persName>
+		</editor>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="page" from="386" to="401" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">G M</forename><surname>Niesters</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Methods</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="page" from="419" to="429" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>
