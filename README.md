@@ -20,6 +20,9 @@ In orther to run the script your machine should count with the following depende
 
 *Only if you want to procces pdfs, if you already have the files processed into grobid.tei.xml files don't need these
 ## Instalation Instructions
+
+### Local Instalation
+
 In order to run the program you should follow the next instructions.
 1. Set up a new Python 3.10.12 or higher enviroment
 2. Install the needed libraries
@@ -48,6 +51,34 @@ python 1_kewordcloud.py
 python 2_number_o_figures.py
 python 3_references.py
 ```
+
+### Docker Installation
+In order to use the scripts using docker you must follow the next steps.
+1. Create a docker network for comunicating between server and client docker continers.
+```
+docker network create redOS
+```
+2. Create both groboid server and the project's container. These commands should be runned in background or in different terminals due these blocks the terminal.
+```
+docker run --rm --name grobid --network redOS --init --ulimit core=0 -p 8070:8070 grobid/grobid:0.8.1-SNAPSHOT
+run --name osproj --network redOS itstwofive/openscience:0.1.2
+```
+3. To Acces the container we created you should run
+```
+docker exec -ti mio /bin/bash
+```
+4. Then change directory to the scripts folder.
+```
+ cd Op-enScience/
+```
+5. Finally you can execute the 4 scripts by using the following commands.
+```
+python3 analyzePapers.py
+python3 1_kewordcloud.py
+python3 2_number_o_figures.py
+python3 3_references.py
+```
+[DockerHub Link](https://hub.docker.com/repository/docker/itstwofive/openscience/general)
 ## Execution Instructions
 In order to execute the scripts you will to preprocess the wanted pdfs using grobid. This can be done by copying the pdf files into the dir "pdf" and executing the python script *analyzePapers.py*.
 Then once you have preprocessed the papers, you can make use of the three following scripts orderless.
