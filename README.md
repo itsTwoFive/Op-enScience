@@ -12,7 +12,7 @@ This repository contains 3 Scripts that using already analyzed pdf with grobid w
 ## Requirements
 In orther to run the script your machine should count with the following dependencies:
 - Grobid server 0.8.1-SNAPSHOT*
-- Python 3.12 or above
+- Python 3.10.12 or above
 - matplotlib 3.8.3
 - grobid-client 0.8.5*
 - wordcloud 1.9.3
@@ -21,7 +21,7 @@ In orther to run the script your machine should count with the following depende
 *Only if you want to procces pdfs, if you already have the files processed into grobid.tei.xml files don't need these
 ## Instalation Instructions
 In order to run the program you should follow the next instructions.
-1. Set up a new Python 3.12 enviroment
+1. Set up a new Python 3.10.12 or higher enviroment
 2. Install the needed libraries
 ```
 pip install matplotlib==3.8.3
