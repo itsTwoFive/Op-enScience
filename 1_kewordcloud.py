@@ -34,7 +34,7 @@ keywords = []
 ruta = "pdfsOut"
 ficheros = os.listdir(ruta)
 for fichero in ficheros:
-    fp = open(ruta +"\\"+fichero,encoding="utf8")
+    fp = open(ruta +"/"+fichero,encoding="utf8")
     conte = fp.read()
     keywords.extend(get_key_words(conte))
 

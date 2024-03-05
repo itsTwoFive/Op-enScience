@@ -8,7 +8,7 @@ print("-"*55)
 total = 0
 
 for fichero in ficheros:
-    fp = open(ruta +"\\"+fichero,encoding="utf8")
+    fp = open(ruta +"/"+fichero,encoding="utf8")
     conte = fp.read()
     numero_fig = conte.count("<figure")
     total += numero_fig

@@ -53,7 +53,7 @@ out.write("-"*100)
 out.write("\n")
 
 for fichero in ficheros:
-    fp = open(ruta +"\\"+fichero,encoding="utf8")
+    fp = open(ruta +"/"+fichero,encoding="utf8")
     nombre = (fichero[:-len(".grobid.tei.xml")]+".pdf")
     out.write("\n")
     out.write("-"*100)
