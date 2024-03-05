@@ -16,4 +16,4 @@ for fichero in ficheros:
     print(f"{nombre} ==> {numero_fig}")
     
 print("-"*55)
-print(f"{"Total number of figures".ljust(45)} ==> {total}")
+print(f"{'Total number of figures'.ljust(45)} ==> {total}")
