@@ -58,7 +58,7 @@ Then once you have preprocessed the papers, you can make use of the three follow
 Each one of the scripts has its unique output, depending wich one is executed you will get different solutions in different ways. The repository contaisn 11 papers to test in the dir *pdfs*, you can add as much as you want here as it would act as the input directory.
 ### 1_kewordcloud.py
 This script will create a 1920x1080 image with the keywords used in the analyzed pdfs.
-![WordCloud](https://github.com/itsTwoFive/Op-enScience/blob/main/wordcloud.png)
+![WordCloud](https://github.com/itsTwoFive/Op-enScience/blob/main/wordcloudexample.png)
 ### 2_number_o_figures.py
 This script will show on commandline a table counting the number of figures per document. Similar to:
 ```
