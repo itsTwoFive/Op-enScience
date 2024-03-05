@@ -1,5 +1,5 @@
 # Alvaro Gonzalez Mendez's Open Science Project
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10782920.svg)](https://doi.org/10.5281/zenodo.10782920)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10783665.svg)](https://doi.org/10.5281/zenodo.10783665)
 ## Description
 Individual practice for the course Open Science and Artificial Intelligence at UPM.
 ### The scripts
