@@ -21,7 +21,7 @@ In orther to run the script your machine should count with the following depende
 *Only if you want to procces pdfs, if you already have the files processed into grobid.tei.xml files don't need these
 ## Instalation Instructions
 In order to run the program you should follow the next instructions.
-1. Set up a new Python 3.11 enviroment
+1. Set up a new Python 3.12 enviroment
 2. Install the needed libraries
 ```
 pip install matplotlib==3.8.3
