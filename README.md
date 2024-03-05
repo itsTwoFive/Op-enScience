@@ -11,15 +11,43 @@ This repository contains 3 Scripts that using already analyzed pdf with grobid w
 *In order to proceed with the exercise I changed the expected behivor of the 3rd script becouse I couldn't find the way to fetch thelinks from the grobisd output files, so now it Lists all the references and it's authors in a txt document.
 ## Requirements
 In orther to run the script your machine should count with the following dependencies:
-- Grobid server*
+- Grobid server 0.8.1-SNAPSHOT*
 - Python 3.11 or above
 - matplotlib 3.8.3
 - grobid-client 0.8.5*
 - wordcloud 1.9.3
+- requests 2.31.0
 
 *Only if you want to procces pdfs, if you already have the files processed into grobid.tei.xml files don't need these
 ## Instalation Instructions
-The current version of the project doesn't need to install, it runs on python using the directory of the repository.
+In order to run the program you should follow the next instructions.
+1. Set up a new Python 3.11 enviroment
+2. Install the needed libraries
+```
+pip install matplotlib==3.8.3
+pip install wordcloud==1.9.3
+pip install requests==2.31.0
+```
+3. Clone the repository and change the current directory to the code's path.
+```
+git clone https://github.com/itsTwoFive/Op-enScience
+cd Op-enScience
+```
+4. Install docker if you haven't and then run the grobid server. More info in [Grobid](https://github.com/kermitt2/grobid) 
+```
+docker run --rm --init --ulimit core=0 -p 8070:8070 grobid/grobid:0.8.1-SNAPSHOT
+```
+5. Download python grobid client. More info in [Grobid Client](https://github.com/kermitt2/grobid_client_python)
+```
+git clone https://github.com/kermitt2/grobid_client_python
+```
+6. Now you can run the analyzer and later any of the 3 scripts. (In order to analyze any pdf you must copy them into *pdf* dir)
+```
+python analyzePapers.py
+python 1_kewordcloud.py
+python 2_number_o_figures.py
+python 3_references.py
+```
 ## Execution Instructions
 In order to execute the scripts you will to preprocess the wanted pdfs using grobid. This can be done by copying the pdf files into the dir "pdf" and executing the python script *analyzePapers.py*.
 Then once you have preprocessed the papers, you can make use of the three following scripts orderless.
