@@ -7,7 +7,7 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 		<fileDesc>
 			<titleStmt>
 				<title level="a" type="main">MEGA6: Molecular Evolutionary Genetics Analysis Version 6.0</title>
-				<funder ref="#_xz2sUCv #_x5qSKrQ">
+				<funder ref="#_ztEh3D2 #_UHWWUdG">
 					<orgName type="full">National Institutes of Health</orgName>
 				</funder>
 			</titleStmt>
@@ -58,7 +58,7 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 		</fileDesc>
 		<encodingDesc>
 			<appInfo>
-				<application version="0.8.1-SNAPSHOT" ident="GROBID" when="2024-03-05T19:01+0000">
+				<application version="0.8.1-SNAPSHOT" ident="GROBID" when="2024-03-05T19:05+0000">
 					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
 					<ref target="https://github.com/kermitt2/grobid"/>
 				</application>
@@ -91,10 +91,10 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 <div><head>Acknowledgments</head><p>We thank <rs type="person">Oscar Murillo</rs> for extensive help in testing the RelTime computations. We would also like to thank <rs type="person">Sayaka Miura</rs>, <rs type="person">Anna Freydenzon</rs>, <rs type="person">Mike Suleski</rs>, and <rs type="person">Abediyi Banjoko</rs> for their invaluable feedback. This work was supported from research grants from <rs type="funder">National Institutes of Health</rs> (<rs type="grantNumber">HG002096-12</rs> to S.K. and <rs type="grantNumber">HG006039-03</rs> to A.F.) and Japan</p></div>
 			</div>
 			<listOrg type="funding">
-				<org type="funding" xml:id="_xz2sUCv">
+				<org type="funding" xml:id="_ztEh3D2">
 					<idno type="grant-number">HG002096-12</idno>
 				</org>
-				<org type="funding" xml:id="_x5qSKrQ">
+				<org type="funding" xml:id="_UHWWUdG">
 					<idno type="grant-number">HG006039-03</idno>
 				</org>
 			</listOrg>

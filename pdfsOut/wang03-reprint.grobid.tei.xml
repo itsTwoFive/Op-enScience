@@ -7,14 +7,14 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 		<fileDesc>
 			<titleStmt>
 				<title level="a" type="main">Image Quality Assessment: From Error Visibility to Structural Similarity</title>
-				<funder>
-					<orgName type="full">Howard Hughes Medical Institute</orgName>
-				</funder>
-				<funder ref="#_DqXpuzA">
+				<funder ref="#_hxaEUVb">
 					<orgName type="full">National Science Foundation</orgName>
 				</funder>
 				<funder>
 					<orgName type="full">Visual Delights, Inc.</orgName>
+				</funder>
+				<funder>
+					<orgName type="full">Howard Hughes Medical Institute</orgName>
 				</funder>
 			</titleStmt>
 			<publicationStmt>
@@ -65,7 +65,7 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 		</fileDesc>
 		<encodingDesc>
 			<appInfo>
-				<application version="0.8.1-SNAPSHOT" ident="GROBID" when="2024-03-05T19:01+0000">
+				<application version="0.8.1-SNAPSHOT" ident="GROBID" when="2024-03-05T19:05+0000">
 					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
 					<ref target="https://github.com/kermitt2/grobid"/>
 				</application>
@@ -126,7 +126,7 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 <div><p>The work of <rs type="person">Z. Wang</rs> and <rs type="person">E. P. Simoncelli</rs> was supported by the <rs type="funder">Howard Hughes Medical Institute</rs>. The work of <rs type="person">A. C. Bovik</rs> and <rs type="person">H. R. Sheikh</rs> was supported by the <rs type="funder">National Science Foundation</rs> and the <rs type="programName">Texas Advanced Research Program</rs>.</p></div>
 			</div>
 			<listOrg type="funding">
-				<org type="funding" xml:id="_DqXpuzA">
+				<org type="funding" xml:id="_hxaEUVb">
 					<orgName type="program" subtype="full">Texas Advanced Research Program</orgName>
 				</org>
 			</listOrg>
