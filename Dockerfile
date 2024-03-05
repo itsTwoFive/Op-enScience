@@ -14,6 +14,8 @@ RUN git clone https://github.com/itsTwoFive/Op-enScience
 
 RUN cd Op-enScience; git clone https://github.com/kermitt2/grobid_client_python
 
+RUN cd Op-enScience; rm analyzePapers.py ;mv analyzePapersdocker.py analyzePapers.py -f
+
 ENV PYTHONPATH "${PYTHONPATH}:/OpenScienceApp/Op-enScience"
 
 RUN chmod +x /OpenScienceApp/Op-enScience/start.sh
