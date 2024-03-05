@@ -10,7 +10,7 @@
     "version": "0.1.2",
     "description": "Alvaro Gonzalez Mendez's individual practice for the course Open Science and Artificial Intelligence at UPM.",
     "developmentStatus": "concept",
-    "referencePublication": "https://doi.org/10.5281/zenodo.10782920",
+    "referencePublication": "https://doi.org/10.5281/zenodo.10783665",
     "programmingLanguage": [
         "Python 3"
     ],
@@ -21,7 +21,7 @@
             "familyName": "Gonzalez Mendez",
             "email": "alvaro.gmendez@alumnos.upm.es",
             "affiliation": {
-                "@type": "Organization",
+                "@type": "University",
                 "name": "Student"
             }
         }
