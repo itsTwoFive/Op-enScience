@@ -1,0 +1,1343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Image Quality Assessment: From Error Visibility to Structural Similarity</title>
+				<funder>
+					<orgName type="full">Howard Hughes Medical Institute</orgName>
+				</funder>
+				<funder ref="#_DqXpuzA">
+					<orgName type="full">National Science Foundation</orgName>
+				</funder>
+				<funder>
+					<orgName type="full">Visual Delights, Inc.</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+				<availability  status="unknown">
+					<licence/>
+				</availability>
+				<date type="published" when="2004-04">2004-04</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><roleName>Member, IEEE</roleName><forename type="first">Zhou</forename><surname>Wang</surname></persName>
+							<email>zhouwang@ieee.org</email>
+						</author>
+						<author>
+							<persName><roleName>Fellow, IEEE</roleName><forename type="first">Alan</forename><forename type="middle">C</forename><surname>Bovik</surname></persName>
+							<email>bovik@ece.utexas.edu</email>
+						</author>
+						<author>
+							<persName><forename type="first">H</forename><forename type="middle">R</forename><surname>Sheikh</surname></persName>
+							<email>hamid.sheikh@ieee.org</email>
+						</author>
+						<author>
+							<persName><roleName>Student Member, IEEE</roleName><forename type="first">Eero</forename><forename type="middle">P</forename><surname>Simoncelli</surname></persName>
+							<email>eero.simoncelli@nyu.edu</email>
+						</author>
+						<title level="a" type="main">Image Quality Assessment: From Error Visibility to Structural Similarity</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">IEEE Transactions on Image Processing</title>
+						<title level="j" type="abbrev">IEEE Trans. on Image Process.</title>
+						<idno type="ISSN">1057-7149</idno>
+						<imprint>
+							<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+							<biblScope unit="volume">13</biblScope>
+							<biblScope unit="issue">4</biblScope>
+							<biblScope unit="page" from="600" to="612"/>
+							<date type="published" when="2004-04" />
+						</imprint>
+					</monogr>
+					<idno type="MD5">DFB2000637A4085FD2B132BD4D0B77BE</idno>
+					<idno type="DOI">10.1109/tip.2003.819861</idno>
+					<note type="submission">Manuscript received January 15, 2003; revised August 18, 2003.</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.1-SNAPSHOT" ident="GROBID" when="2024-03-05T19:01+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Error sensitivity</term>
+					<term>human visual system (HVS)</term>
+					<term>image coding</term>
+					<term>image quality assessment</term>
+					<term>JPEG</term>
+					<term>JPEG2000</term>
+					<term>perceptual quality</term>
+					<term>structural information</term>
+					<term>structural similarity</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Objective methods for assessing perceptual image quality traditionally attempted to quantify the visibility of errors (differences) between a distorted image and a reference image using a variety of known properties of the human visual system. Under the assumption that human visual perception is highly adapted for extracting structural information from a scene, we introduce an alternative complementary framework for quality assessment based on the degradation of structural information. As a specific example of this concept, we develop a Structural Similarity Index and demonstrate its promise through a set of intuitive examples, as well as comparison to both subjective ratings and state-of-the-art objective methods on a database of images compressed with JPEG and JPEG2000. 1   </p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>work digital video server can examine the quality of video being transmitted in order to control and allocate streaming resources. Second, it can be used to optimize algorithms and parameter settings of image processing systems. For instance, in a visual communication system, a quality metric can assist in the optimal design of prefiltering and bit assignment algorithms at the encoder and of optimal reconstruction, error concealment, and postfiltering algorithms at the decoder. Third, it can be used to benchmark image processing systems and algorithms.</p><p>Objective image quality metrics can be classified according to the availability of an original (distortion-free) image, with which the distorted image is to be compared. Most existing approaches are known as full-reference, meaning that a complete reference image is assumed to be known. In many practical applications, however, the reference image is not available, and a no-reference or "blind" quality assessment approach is desirable. In a third type of method, the reference image is only partially available, in the form of a set of extracted features made available as side information to help evaluate the quality of the distorted image. This is referred to as reduced-reference quality assessment. This paper focuses on full-reference image quality assessment.</p><p>The simplest and most widely used full-reference quality metric is the mean squared error (MSE), computed by averaging the squared intensity differences of distorted and reference image pixels, along with the related quantity of peak signal-to-noise ratio (PSNR). These are appealing because they are simple to calculate, have clear physical meanings, and are mathematically convenient in the context of optimization. But they are not very well matched to perceived visual quality (e.g., <ref type="bibr" target="#b0">[1]</ref>- <ref type="bibr" target="#b8">[9]</ref>). In the last three decades, a great deal of effort has gone into the development of quality assessment methods that take advantage of known characteristics of the human visual system (HVS). The majority of the proposed perceptual quality assessment models have followed a strategy of modifying the MSE measure so that errors are penalized in accordance with their visibility. Section II summarizes this type of error-sensitivity approach and discusses its difficulties and limitations. In Section III, we describe a new paradigm for quality assessment, based on the hypothesis that the HVS is highly adapted for extracting structural information. As a specific example, we develop a measure of structural similarity (SSIM) that compares local patterns of pixel intensities that have been normalized for luminance and contrast. In Section IV, we compare the test results of different quality assessment models against a large set of subjective ratings gathered for a database of 344 images compressed with JPEG and JPEG2000. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Error Pooling</head><p>Preprocessing CSF Filtering . . . Fig. <ref type="figure">1</ref>. A prototypical quality assessment system based on error sensitivity. Note that the CSF feature can be implemented either as a separate stage (as shown) or within "Error Normalization."</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. IMAGE QUALITY ASSESSMENT BASED ON ERROR SENSITIVITY</head><p>An image signal whose quality is being evaluated can be thought of as a sum of an undistorted reference signal and an error signal. A widely adopted assumption is that the loss of perceptual quality is directly related to the visibility of the error signal. The simplest implementation of this concept is the MSE, which objectively quantifies the strength of the error signal. But two distorted images with the same MSE may have very different types of errors, some of which are much more visible than others. Most perceptual image quality assessment approaches proposed in the literature attempt to weight different aspects of the error signal according to their visibility, as determined by psychophysical measurements in humans or physiological measurements in animals. This approach was pioneered by Mannos and Sakrison <ref type="bibr" target="#b9">[10]</ref>, and has been extended by many other researchers over the years. Reviews on image and video quality assessment algorithms can be found in <ref type="bibr" target="#b3">[4]</ref> and <ref type="bibr" target="#b10">[11]</ref>- <ref type="bibr" target="#b12">[13]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Framework</head><p>Fig. <ref type="figure">1</ref> illustrates a generic image quality assessment framework based on error sensitivity. Most perceptual quality assessment models can be described with a similar diagram, although they differ in detail. The stages of the diagram are as follows.</p><p>• Pre-processing: This stage typically performs a variety of basic operations to eliminate known distortions from the images being compared. First, the distorted and reference signals are properly scaled and aligned. Second, the signal might be transformed into a color space (e.g., <ref type="bibr" target="#b13">[14]</ref>) that is more appropriate for the HVS. Third, quality assessment metrics may need to convert the digital pixel values stored in the computer memory into luminance values of pixels on the display device through pointwise nonlinear transformations. Fourth, a low-pass filter simulating the point spread function of the eye optics may be applied. Finally, the reference and the distorted images may be modified using a nonlinear point operation to simulate light adaptation. • CSF Filtering: The contrast sensitivity function <ref type="bibr">(CSF)</ref> describes the sensitivity of the HVS to different spatial and temporal frequencies that are present in the visual stimulus. Some image quality metrics include a stage that weights the signal according to this function (typically implemented using a linear filter that approximates the frequency response of the CSF). However, many recent metrics choose to implement CSF as a base-sensitivity normalization factor after channel decomposition.</p><p>• Channel Decomposition: The images are typically separated into subbands (commonly called "channels" in the psychophysics literature) that are selective for spatial and temporal frequency as well as orientation. While some quality assessment methods implement sophisticated channel decompositions that are believed to be closely related to the neural responses in the primary visual cortex <ref type="bibr" target="#b1">[2]</ref>, <ref type="bibr" target="#b14">[15]</ref>- <ref type="bibr" target="#b18">[19]</ref>, many metrics use simpler transforms such as the discrete cosine transform (DCT) <ref type="bibr" target="#b19">[20]</ref>, <ref type="bibr" target="#b20">[21]</ref> or separable wavelet transforms <ref type="bibr" target="#b21">[22]</ref>- <ref type="bibr" target="#b23">[24]</ref>. Channel decompositions tuned to various temporal frequencies have also been reported for video quality assessment <ref type="bibr" target="#b4">[5]</ref>, <ref type="bibr" target="#b24">[25]</ref>. • Error Normalization: The error (difference) between the decomposed reference and distorted signals in each channel is calculated and normalized according to a certain masking model, which takes into account the fact that the presence of one image component will decrease the visibility of another image component that is proximate in spatial or temporal location, spatial frequency, or orientation. The normalization mechanism weights the error signal in a channel by a space-varying visibility threshold <ref type="bibr" target="#b25">[26]</ref>. The visibility threshold at each point is calculated based on the energy of the reference and/or distorted coefficients in a neighborhood (which may include coefficients from within a spatial neighborhood of the same channel as well as other channels) and the base-sensitivity for that channel. The normalization process is intended to convert the error into units of just noticeable difference (JND). Some methods also consider the effect of contrast response saturation (e.g., <ref type="bibr" target="#b1">[2]</ref>). • Error Pooling: The final stage of all quality metrics must combine the normalized error signals over the spatial extent of the image, and across the different channels, into a single value. For most quality assessment methods, pooling takes the form of a Minkowski norm as follows:</p><p>(1)</p><p>where is the normalized error of the -th coefficient in the th channel, and is a constant exponent typically chosen to lie between 1 and 4. Minkowski pooling may be performed over space (index ) and then over frequency (index ), or vice versa, with some nonlinearity between them, or possibly with different exponents . A spatial map indicating the relative importance of different regions may also be used to provide spatially variant weighting <ref type="bibr" target="#b24">[25]</ref>, <ref type="bibr" target="#b26">[27]</ref>, <ref type="bibr" target="#b27">[28]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Limitations</head><p>The underlying principle of the error-sensitivity approach is that perceptual quality is best estimated by quantifying the visibility of errors. This is essentially accomplished by simulating the functional properties of early stages of the HVS, as characterized by both psychophysical and physiological experiments. Although this bottom-up approach to the problem has found nearly universal acceptance, it is important to recognize its limitations. In particular, the HVS is a complex and highly nonlinear system, but most models of early vision are based on linear or quasilinear operators that have been characterized using restricted and simplistic stimuli. Thus, error-sensitivity approaches must rely on a number of strong assumptions and generalizations. These have been noted by many previous authors, and we provide only a brief summary here.</p><p>• The Quality Definition Problem: The most fundamental problem with the traditional approach is the definition of image quality. In particular, it is not clear that error visibility should be equated with loss of quality, as some distortions may be clearly visible but not so objectionable.</p><p>An obvious example would be multiplication of the image intensities by a global scale factor. The study in <ref type="bibr" target="#b28">[29]</ref> also suggested that the correlation between image fidelity and image quality is only moderate. • The Suprathreshold Problem. The psychophysical experiments that underlie many error sensitivity models are specifically designed to estimate the threshold at which a stimulus is just barely visible. These measured threshold values are then used to define visual error sensitivity measures, such as the CSF and various masking effects. However, very few psychophysical studies indicate whether such near-threshold models can be generalized to characterize perceptual distortions significantly larger than threshold levels, as is the case in a majority of image processing situations. In the suprathreshold range, can the relative visual distortions between different channels be normalized using the visibility thresholds? Recent efforts have been made to incorporate suprathreshold psychophysics for analyzing image distortions (e.g., <ref type="bibr" target="#b29">[30]</ref>- <ref type="bibr" target="#b33">[34]</ref>). • The Natural Image Complexity Problem. Most psychophysical experiments are conducted using relatively simple patterns, such as spots, bars, or sinusoidal gratings. For example, the CSF is typically obtained from threshold experiments using global sinusoidal images. The masking phenomena are usually characterized using a superposition of two (or perhaps a few) different patterns. But all such patterns are much simpler than real world images, which can be thought of as a superposition of a much larger number of simple patterns. Can the models for the interactions between a few simple patterns generalize to evaluate interactions between tens or hundreds of patterns? Is this limited number of simple-stimulus experiments sufficient to build a model that can predict the visual quality of complex-structured natural images? Although the answers to these questions are currently not known, the recently established Modelfest dataset <ref type="bibr" target="#b34">[35]</ref> includes both simple and complex patterns, and should facilitate future studies.</p><p>• The Decorrelation Problem. When one chooses to use a Minkowski metric for spatially pooling errors, one is implicitly assuming that errors at different locations are statistically independent. This would be true if the processing prior to the pooling eliminated dependencies in the input signals. Empirically, however, this is not the case for linear channel decomposition methods such as the wavelet transform. It has been shown that a strong dependency exists between intra-and inter-channel wavelet coefficients of natural images <ref type="bibr" target="#b35">[36]</ref>, <ref type="bibr" target="#b36">[37]</ref>. In fact, state-of-the-art wavelet image compression techniques achieve their success by exploiting this strong dependency <ref type="bibr" target="#b37">[38]</ref>- <ref type="bibr" target="#b40">[41]</ref>. Psychophysically, various visual masking models have been used to account for the interactions between coefficients <ref type="bibr" target="#b1">[2]</ref>, <ref type="bibr" target="#b41">[42]</ref>.</p><p>Statistically, it has been shown that a well-designed nonlinear gain control model, in which parameters are optimized to reduce dependencies rather than for fitting data from masking experiments, can greatly reduce the dependencies of the transform coefficients <ref type="bibr" target="#b42">[43]</ref>, <ref type="bibr" target="#b43">[44]</ref>. In <ref type="bibr" target="#b44">[45]</ref>, <ref type="bibr" target="#b45">[46]</ref>, it is shown that optimal design of transformation and masking models can reduce both statistical and perceptual dependencies. It remains to be seen how much these models can improve the performance of the current quality assessment algorithms. • The Cognitive Interaction Problem. It is widely known that cognitive understanding and interactive visual processing (e.g., eye movements) influence the perceived quality of images. For example, a human observer will give different quality scores to the same image if s/he is provided with different instructions <ref type="bibr" target="#b3">[4]</ref>, <ref type="bibr" target="#b29">[30]</ref>. Prior information regarding the image content, or attention and fixation, may also affect the evaluation of the image quality <ref type="bibr" target="#b3">[4]</ref>, <ref type="bibr" target="#b46">[47]</ref>. But most image quality metrics do not consider these effects, as they are difficult to quantify and not well understood.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. STRUCTURAL-SIMILARITY-BASED IMAGE QUALITY ASSESSMENT</head><p>Natural image signals are highly structured: their pixels exhibit strong dependencies, especially when they are spatially proximate, and these dependencies carry important information about the structure of the objects in the visual scene. The Minkowski error metric is based on pointwise signal differences, which are independent of the underlying signal structure. Although most quality measures based on error sensitivity decompose image signals using linear transformations, these do not remove the strong dependencies, as discussed in the previous section. The motivation of our new approach is to find a more direct way to compare the structures of the reference and the distorted signals.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. New Philosophy</head><p>In <ref type="bibr" target="#b5">[6]</ref> and <ref type="bibr" target="#b8">[9]</ref>, a new framework for the design of image quality measures was proposed, based on the assumption that the human visual system is highly adapted to extract structural information from the viewing field. It follows that a measure of structural information change can provide a good approximation to perceived image distortion. This new philosophy can be best understood through comparison with the error sensitivity philosophy. First, the error sensitivity approach estimates perceived errors to quantify image degradations, while the new philosophy considers image degradations as perceived changes in structural information variation. A motivating example is shown in Fig. <ref type="figure" target="#fig_1">2</ref>, where the original "Boat" image is altered with different distortions, each adjusted to yield nearly identical MSE relative to the original image. Despite this, the images can be seen to have drastically different perceptual quality. With the error sensitivity philosophy, it is difficult to explain why the contrast-stretched image has very high quality in consideration of the fact that its visual difference from the reference image is easily discerned. But it is easily understood with the new philosophy since nearly all the structural information of the reference image is preserved, in the sense that the original information can be nearly fully recovered via a simple pointwise inverse linear luminance transform (except perhaps for the very bright and dark regions where saturation occurs). On the other hand, some structural information from the original image is permanently lost in the JPEG compressed and the blurred images, and therefore they should be given lower quality scores than the contrast-stretched and mean-shifted images.</p><p>Second, the error-sensitivity paradigm is a bottom-up approach, simulating the function of relevant early-stage components in the HVS. The new paradigm is a top-down approach, mimicking the hypothesized functionality of the overall HVS. This, on the one hand, avoids the suprathreshold problem mentioned in the previous section because it does not rely on threshold psychophysics to quantify the perceived distortions. On the other hand, the cognitive interaction problem is also reduced to a certain extent because probing the structures of the objects being observed is thought of as the purpose of the entire process of visual observation, including high level and interactive processes.</p><p>Third, the problems of natural image complexity and decorrelation are also avoided to some extent because the new philosophy does not attempt to predict image quality by accumulating the errors associated with psychophysically understood simple patterns. Instead, the new philosophy proposes to evaluate the structural changes between two complex-structured signals directly.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. The SSIM Index</head><p>We construct a specific example of a SSIM quality measure from the perspective of image formation. A previous instantiation of this approach was made in <ref type="bibr" target="#b5">[6]</ref>- <ref type="bibr" target="#b7">[8]</ref> and promising results on simple tests were achieved. In this paper, we generalize this algorithm, and provide a more extensive set of validation results.</p><p>The luminance of the surface of an object being observed is the product of the illumination and the reflectance, but the structures of the objects in the scene are independent of the illumination. Consequently, to explore the structural information in an image, we wish to separate the influence of the illumination. We define the structural information in an image as those attributes that represent the structure of objects in the scene, independent of the average luminance and contrast. Since luminance  The luminance comparison function is then a function of and . Second, we remove the mean intensity from the signal. In discrete form, the resulting signal corresponds to the projection of vector onto the hyperplane defined by <ref type="bibr" target="#b2">(3)</ref> We use the standard deviation (the square root of variance) as an estimate of the signal contrast. An unbiased estimate in discrete form is given by (4)</p><p>The contrast comparison is then the comparison of and .</p><p>Third, the signal is normalized (divided) by its own standard deviation, so that the two signals being compared have unit standard deviation. The structure comparison is conducted on these normalized signals and .</p><p>Finally, the three components are combined to yield an overall similarity measure <ref type="bibr" target="#b4">(5)</ref> An important point is that the three components are relatively independent. For example, the change of luminance and/or contrast will not affect the structures of images.</p><p>In order to complete the definition of the similarity measure in <ref type="bibr" target="#b4">(5)</ref>, we need to define the three functions , , and , as well as the combination function . We also would like the similarity measure to satisfy the following conditions.</p><p>1) Symmetry: . 2) Boundedness:</p><p>. 3) Unique maximum:</p><p>if and only if (in discrete representations, for all ). For luminance comparison, we define <ref type="bibr" target="#b5">(6)</ref> where the constant is included to avoid instability when is very close to zero. Specifically, we choose <ref type="bibr" target="#b6">(7)</ref> where is the dynamic range of the pixel values (255 for 8-bit grayscale images), and is a small constant. Similar considerations also apply to contrast comparison and structure comparison described later. Equation ( <ref type="formula">6</ref>) is easily seen to obey the three properties listed above.</p><p>Equation ( <ref type="formula">6</ref>) is also qualitatively consistent with Weber's law, which has been widely used to model light adaptation (also called luminance masking) in the HVS. According to Weber's law, the magnitude of a just-noticeable luminance change is approximately proportional to the background luminance for a wide range of luminance values. In other words, the HVS is sensitive to the relative luminance change, and not the absolute luminance change. Letting represent the size of luminance change relative to background luminance, we rewrite the luminance of the distorted signal as . Substituting this into (6) gives <ref type="bibr" target="#b7">(8)</ref> If we assume is small enough (relative to ) to be ignored, then is a function only of , qualitatively consistent with Weber's law.</p><p>The contrast comparison function takes a similar form <ref type="bibr" target="#b8">(9)</ref> where , and . This definition again satisfies the three properties listed above. An important feature of this function is that with the same amount of contrast change , this measure is less sensitive to the case of high base contrast than low base contrast. This is consistent with the contrast-masking feature of the HVS.</p><p>Structure comparison is conducted after luminance subtraction and variance normalization. Specifically, we associate the two unit vectors and , each lying in the hyperplane defined by (3), with the structure of the two images. The correlation (inner product) between these is a simple and effective measure to quantify the structural similarity. Notice that the correlation between and is equivalent to the correlation coefficient between and . Thus, we define the structure comparison function as follows: <ref type="bibr" target="#b9">(10)</ref> As in the luminance and contrast measures, we have introduced a small constant in both denominator and numerator. In discrete form, can be estimated as <ref type="bibr" target="#b10">(11)</ref> Geometrically, the correlation coefficient corresponds to the cosine of the angle between the vectors and . Note also that can take on negative 's. Finally, we combine the three comparisons of ( <ref type="formula">6</ref>), ( <ref type="formula">9</ref>) and ( <ref type="formula">10</ref>) and name the resulting similarity measure the SSIM index between signals and <ref type="bibr" target="#b11">(12)</ref> where , and are parameters used to adjust the relative importance of the three components. It is easy to verify that this definition satisfies the three conditions given above. In order to simplify the expression, we set and in this paper. This results in a specific form of the SSIM index <ref type="bibr" target="#b12">(13)</ref> The "universal quality index" (UQI) defined in <ref type="bibr" target="#b5">[6]</ref> and <ref type="bibr" target="#b6">[7]</ref> corresponds to the special case that , which produces unstable results when either or is very close to zero.</p><p>The relationship between the SSIM index and more traditional quality metrics may be illustrated geometrically in a vector space of image components. These image components can be either pixel intensities or other extracted features such as transformed linear coefficients. Fig. <ref type="figure" target="#fig_4">4</ref> shows equal-distortion contours drawn around three different example reference vectors, each of which represents the local content of one reference image. For the purpose of illustration, we show only a two-dimensional space, but in general the dimensionality should match the number of image components being compared. Each contour represents a set of images with equal distortions relative to the enclosed reference image. Fig. <ref type="figure" target="#fig_4">4(a)</ref> shows the result for a simple Minkowski metric. Each contour has the same size and shape (a circle here, as we are assuming an exponent of 2). That is, perceptual distance corresponds to Euclidean distance. Fig. <ref type="figure" target="#fig_4">4</ref>(b) shows a Minkowski metric in which different image components are weighted differently. This could be, for example, weighting according to the CSF, as is common in many models. Here the contours are ellipses, but still are all the same size. These are shown aligned with the axes, but in general could be tilted to any fixed orientation.</p><p>Many recent models incorporate contrast masking behaviors, which has the effect of rescaling the equal-distortion contours according to the signal magnitude, as shown in Fig. <ref type="figure" target="#fig_4">4(c</ref>). This may be viewed as a type of adaptive distortion metric: it depends not just on the difference between the signals, but also on the signals themselves. Fig. <ref type="figure" target="#fig_4">4</ref>(d) shows a combination of contrast masking (magnitude weighting) followed by component weighting. Our proposed method, on the other hand, separately computes a comparison of two independent quantities: the vector lengths, and their angles. Thus, the contours will be aligned with the axes of a polar coordinate system. Figs. <ref type="figure" target="#fig_4">4(e</ref>) and 4(f) show two examples of this, computed with different exponents. Again, this may be viewed as an adaptive distortion metric, but unlike previous models, both the size and the shape of the contours are adapted to the underlying signal. Some recent models that use divisive normalization to describe masking effects also exhibit signal-dependent contour orientations (e.g., <ref type="bibr" target="#b44">[45]</ref>, <ref type="bibr" target="#b45">[46]</ref>, <ref type="bibr" target="#b47">[48]</ref>), although precise alignment with the axes of a polar coordinate system as in Fig. <ref type="figure" target="#fig_4">4</ref>(e) and (f) is not observed in these methods.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Image Quality Assessment Using SSIM Index</head><p>For image quality assessment, it is useful to apply the SSIM index locally rather than globally. First, image statistical features are usually highly spatially nonstationary. Second, image distortions, which may or may not depend on the local image statistics, may also be space-variant. Third, at typical viewing distances, only a local area in the image can be perceived with high resolution by the human observer at one time instance (because of the foveation feature of the HVS <ref type="bibr" target="#b48">[49]</ref>, <ref type="bibr" target="#b49">[50]</ref>). And finally, localized quality measurement can provide a spatially varying quality map of the image, which delivers more information about the quality degradation of the image and may be useful in some applications.</p><p>In <ref type="bibr" target="#b5">[6]</ref> and <ref type="bibr" target="#b6">[7]</ref>, the local statistics , and are computed within a local 8 8 square window, which moves pixel-by-pixel over the entire image. At each step, the local statistics and SSIM index are calculated within the local window. One problem with  <ref type="formula">9</ref>) and ( <ref type="formula">10</ref>)) with more emphasis on s(x; y). (f) The proposed system [a combination of ( <ref type="formula">9</ref>) and ( <ref type="formula">10</ref>)] with more emphasis on c(x; y). Each image is represented as a vector, whose entries are image components. Note: this is an illustration in 2-D space. In practice, the number of dimensions should be equal to the number of image components used for comparison (e.g, the number of pixels or transform coefficients).</p><p>this method is that the resulting SSIM index map often exhibits undesirable "blocking" artifacts. In this paper, we use an <ref type="bibr" target="#b10">11</ref> 11 circular-symmetric Gaussian weighting function , with standard deviation of 1.5 samples, normalized to unit sum . The estimates of local statistics , and are then modified accordingly as</p><formula xml:id="formula_0">(14) (<label>15</label></formula><formula xml:id="formula_1">) (<label>16</label></formula><formula xml:id="formula_2">)</formula><p>With such a windowing approach, the quality maps exhibit a locally isotropic property. Throughout this paper, the SSIM measure uses the following parameter settings: ; . These values are somewhat arbitrary, but we find that in our current experiments, the performance of the SSIM index algorithm is fairly insensitive to variations of these values.</p><p>In practice, one usually requires a single overall quality measure of the entire image. We use a mean SSIM (MSSIM) index to evaluate the overall image quality <ref type="bibr" target="#b16">(17)</ref> where and are the reference and the distorted images, respectively; and are the image contents at the th local window; and is the number of local windows of the image. Depending on the application, it is also possible to compute a weighted average of the different samples in the SSIM index map. For example, region-of-interest image processing systems may give different weights to different segmented regions in the image. As another example, it has been observed that different image textures attract human fixations with varying degrees (e.g., <ref type="bibr" target="#b50">[51]</ref>, <ref type="bibr" target="#b51">[52]</ref>). A smoothly varying foveated weighting model (e.g., <ref type="bibr" target="#b49">[50]</ref>) can be employed to define the weights. In this paper, however, we use uniform weighting. A MATLAB implementation of the SSIM index algorithm is available online at <ref type="bibr" target="#b52">[53]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. EXPERIMENTAL RESULTS</head><p>Many image quality assessment algorithms have been shown to behave consistently when applied to distorted images created from the same original image, using the same type of distortions (e.g., JPEG compression). However, the effectiveness of these models degrades significantly when applied to a set of images originating from different reference images, and/or including a variety of different types of distortions. Thus, cross-image and cross-distortion tests are critical in evaluating the effectiveness of an image quality metric. It is impossible to show a thorough set of such examples, but the images in Fig. <ref type="figure" target="#fig_1">2</ref> provide an encouraging starting point for testing the cross-distortion capability of the quality assessment algorithms. The MSE and MSSIM measurement results are given in the figure caption. Obviously, MSE performs very poorly in this case. The MSSIM values exhibit much better consistency with the qualitative visual appearance.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Best-Case/Worst-Case Validation</head><p>We also have developed a more efficient methodology for examining the relationship between our objective measure and perceived quality. Starting from a distorted image, we ascend/descend the gradient of MSSIM while constraining the MSE to remain equal to that of the initial distorted image. Specifically, we iterate the following two linear-algebraic steps:</p><p>where is the square root of the constrained MSE, controls the step size, and is a unit vector defined by and is a projection operator with the identity operator. MSSIM is differentiable and this procedure converges to a local maximum/minimum of the objective measure. Visual inspection of these best-and worst-case images, along with the initial distorted image, provides a visual indication of the types of distortion deemed least/most important by the objective measure. Therefore, it is an expedient and direct method for revealing perceptual implications of the quality measure. An example is shown in Fig. <ref type="figure" target="#fig_5">5</ref>, where the initial image is contaminated with Gaussian white noise. It can be seen that the local structures of the original image are very well preserved in the maximal MSSIM image. On the other hand, the image structures are changed dramatically in the worst-case MSSIM image, in some cases reversing contrast.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Test on JPEG and JPEG2000 Image Database</head><p>We compare the cross-distortion and cross-image performances of different quality assessment models on an image database composed of JPEG and JPEG2000 compressed images. Twenty-nine high-resolution 24 bits/pixel RGB color images (typically 768 512 or similar size) were compressed at a range of quality levels using either JPEG or JPEG2000, producing a total of 175 JPEG images and 169 JPEG2000 images. The bit rates were in the range of 0.150 to 3.336 and 0.028 to 3.150 bits/pixel, respectively, and were chosen nonuniformly such that the resulting distribution of subjective quality scores was approximately uniform over the entire range. Subjects viewed the images from comfortable seating distances (this distance was only moderately controlled, to allow the data to reflect natural viewing conditions), and were asked to provide their perception of quality on a continuous linear scale that was divided into five equal regions marked with adjectives "Bad," "Poor," "Fair," "Good," and "Excellent." Each JPEG and JPEG2000 compressed image was viewed by <ref type="bibr" target="#b12">13</ref> 20 subjects and 25 subjects, respectively. The subjects were mostly male college students.</p><p>Raw scores for each subject were normalized by the mean and variance of scores for that subject (i.e., raw values were converted to Z-scores <ref type="bibr" target="#b53">[54]</ref>) and then the entire data set was rescaled to fill the range from 1 to 100. Mean opinion scores (MOSs) were then computed for each image, after removing outliers (most subjects had no outliers). The average standard deviations (for each image) of the subjective scores for JPEG, JPEG2000, and all images were 6.00, 7.33, and 6.65, respectively. The image database, together with the subjective score and standard deviation for each image, has been made available on the Internet at <ref type="bibr" target="#b54">[55]</ref>.</p><p>The luminance component of each JPEG and JPEG2000 compressed image is averaged over local 2 2 window and downsampled by a factor of 2 before the MSSIM value is calculated. Our experiments with the current dataset show that the use of the other color components does not significantly change the performance of the model, though this should not be considered generally true for color image quality assessment. Unlike many other perceptual image quality assessment approaches, no specific training procedure is employed before applying the proposed algorithm to the database, because the proposed method is intended for general-purpose image quality assessment (as opposed to image compression alone).</p><p>Figs. <ref type="figure" target="#fig_6">6</ref> and<ref type="figure" target="#fig_9">7</ref> show some example images from the database at different quality levels, together with their SSIM index maps and absolute error maps. Note that at low bit rate, the coarse quantization in JPEG and JPEG2000 algorithms often results in smooth representations of fine-detail regions in the image [e.g., the tiles in Fig. <ref type="figure" target="#fig_6">6(d</ref>) and the trees in Fig. <ref type="figure" target="#fig_9">7(d)]</ref>. Compared with other types of regions, these regions may not be worse in terms of pointwise difference measures such as the absolute error. However, since the structural information of the image details are nearly completely lost, they exhibit poorer visual quality. Comparing Fig. <ref type="figure" target="#fig_6">6</ref>(g) with Fig. <ref type="figure" target="#fig_6">6</ref>(j), and Fig. <ref type="figure" target="#fig_9">7</ref>(g) with 6(j), we observe that the SSIM index is better in capturing such poor quality regions. Also notice that for images with intensive strong edge structures such as Fig. <ref type="figure" target="#fig_9">7</ref>(c), it is difficult to reduce the pointwise errors in the compressed image, even at relatively high bit rate, as exemplified by Fig. <ref type="figure" target="#fig_9">7</ref>(l). However, the compressed image supplies acceptable perceived quality as shown in Fig. <ref type="figure" target="#fig_9">7</ref>(f). In fact, although the visual quality of Fig. <ref type="figure" target="#fig_9">7(f</ref>) is better than Fig. <ref type="figure" target="#fig_9">7</ref>(e), its absolute error map Fig. <ref type="figure" target="#fig_9">7</ref>(l) appears to be worse than Fig. <ref type="figure" target="#fig_9">7</ref>   The quality assessment models used for comparison include PSNR, the well-known Sarnoff model,<ref type="foot" target="#foot_1">2</ref> UQI <ref type="bibr" target="#b6">[7]</ref> and MSSIM. The scatter plot of MOS versus model prediction for each model is shown in Fig. <ref type="figure" target="#fig_10">8</ref>. If PSNR is considered as a benchmark method to evaluate the effectiveness of the other image quality metrics, the Sarnoff model performs quite well in this test. This is in contrast with previous published test results (e.g., <ref type="bibr" target="#b56">[57]</ref>, <ref type="bibr" target="#b57">[58]</ref>), where the performance of most models (including the Sarnoff model) were reported to be statistically equivalent to root mean squared error <ref type="bibr" target="#b56">[57]</ref> and PSNR <ref type="bibr" target="#b57">[58]</ref>. The UQI method performs much better than MSE for the simple cross-distortion test in <ref type="bibr" target="#b6">[7]</ref>, <ref type="bibr" target="#b7">[8]</ref>, but does not deliver satisfactory results in Fig. <ref type="figure" target="#fig_10">8</ref>. We think the major reason is that at nearly flat regions, the denominator of the contrast comparison formula is close to zero, which makes the algorithm unstable. By inserting the small constants and , MSSIM completely avoids this problem and the scatter slot demonstrates that it supplies remarkably good prediction of the subjective scores. In order to provide quantitative measures on the performance of the objective quality assessment models, we follow the performance evaluation procedures employed in the video quality experts group (VQEG) Phase I FR-TV test <ref type="bibr" target="#b57">[58]</ref>, where four evaluation metrics were used. First, logistic functions are used in a fitting procedure to provide a nonlinear mapping between the objective/subjective scores. The fitted curves are shown in Fig. <ref type="figure" target="#fig_10">8</ref>. In <ref type="bibr" target="#b57">[58]</ref>, Metric 1 is the correlation coefficient between objective/subjective scores after variance-weighted regression analysis. Metric 2 is the correlation coefficient between objective/subjective scores after nonlinear regression analysis. These two metrics combined, provide an evaluation of prediction accuracy. The third metric is the Spearman rank-order correlation coefficient between the objective/subjective scores. It is considered as a measure of prediction monotonicity. Finally, metric 4 is the outlier ratio (percentage of the number of predictions outside the range of 2 times of the standard deviations) of the predictions after the nonlinear mapping, which is a measure of prediction consistency. More details on these metrics can be found in <ref type="bibr" target="#b57">[58]</ref>. In addition to these, we also calculated the mean absolute prediction error (MAE), and root mean square prediction error (rms) after nonlinear regression, and weighted mean absolute prediction error (WMAE) and weighted root mean square prediction error (WRMS) after variance-weighted regression. The evaluation results for all the models being compared are given in Table <ref type="table" target="#tab_0">I</ref>. For every one of these criteria, MSSIM performs better than all of the other models being compared.</p><formula xml:id="formula_3">(a) (c) (b) (d) (f) (e) (g) (i) (h) (j) (l) (k)</formula><formula xml:id="formula_4">a) (c) (b) (d) (f) (e) (g) (i) (h) (j) (l) (k)</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. DISCUSSION</head><p>In this paper, we have summarized the traditional approach to image quality assessment based on error-sensitivity, and have enumerated its limitations. We have proposed the use of structural similarity as an alternative motivating principle for the design of image quality measures. To demonstrate our structural similarity concept, we developed an SSIM index and showed that it compares favorably with other methods in accounting for our experimental measurements of subjective quality of 344 JPEG and JPEG2000 compressed images.</p><p>Although the proposed SSIM index method is motivated from substantially different design principles, we see it as complementary to the traditional approach. Careful analysis shows that both the SSIM index and several recently developed divisive-normalization based masking models exhibit input-dependent behavior in measuring signal distortions <ref type="bibr" target="#b44">[45]</ref>, <ref type="bibr" target="#b45">[46]</ref>, <ref type="bibr" target="#b47">[48]</ref>. It seems possible that the two approaches may eventually converge to similar solutions. There are a number of issues that are worth investigation with regard to the specific SSIM index of <ref type="bibr" target="#b11">(12)</ref>. First, the optimization of the SSIM index for various image processing algorithms needs to be studied. For example, it may be employed for rate-distortion optimizations in the design of image compression algorithms. This is not an easy task since ( <ref type="formula">12</ref>) is mathematically more cumbersome than MSE. Second, the application scope of the SSIM index may not be restricted to image processing. In fact, because it is a symmetric measure, it can be thought of as a similarity measure for comparing any two signals. The signals can be either discrete or continuous, and can live in a space of arbitrary dimensionality.</p><p>We consider the proposed SSIM indexing approach as a particular implementation of the philosophy of structural similarity, from an image formation point of view. Under the same philosophy, other approaches may emerge that could be significantly different from the proposed SSIM indexing algorithm. Creative investigation of the concepts of structural information and structural distortion are likely to drive the success of these innovations.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Comparison of "Boat" images with different types of distortions, all with MSE = 210. (a) Original image (8 bits/pixel; cropped from 512 2 512 to 256 2 256 for visibility). (b) Contrast-stretched image, MSSIM = 0:9168. (c) Mean-shifted image, MSSIM = 0:9900. (d) JPEG compressed image, MSSIM = 0:6949. (e) Blurred image, MSSIM = 0:7052. (f) Salt-pepper impulsive noise contaminated image, MSSIM = 0:7748.</figDesc><graphic coords="4,228.28,212.92,134.19,134.19" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. Diagram of the structural similarity (SSIM) measurement system.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. Three example equal-distance contours for different quality metrics. (a) Minkowski error measurement systems. (b) Component weighted Minkowski error measurement systems. (c) Magnitude-weighted Minkowski error measurement systems. (d) Magnitude and component-weighted Minkowski error measurement systems. (e) The proposed system (a combination of (9) and (10)) with more emphasis on s(x; y). (f) The proposed system [a combination of (9) and (10)] with more emphasis on c(x; y). Each image is represented as a vector, whose entries are image components. Note: this is an illustration in 2-D space. In practice, the</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. Best-and worst-case SSIM images, with identical MSE. These are computed by gradient ascent/descent iterative search on MSSIM measure, under the constraint of fixed MSE = 2500. (a) Original image (100 2 100, 8 bits/pixel, cropped from the "Boat" image). (b) Initial image, contaminated with Gaussian white noise (MSSIM = 0:3021). (c) Maximum MSSIM image (MSSIM = 0:9337). (d) Minimum MSSIM image (MSSIM = 00:5411).</figDesc><graphic coords="8,442.42,297.68,92.72,92.72" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Sample JPEG images compressed to different quality levels (original size: 768 2 512; cropped to 256 2 192 for visibility). The original (a) "Buildings, " (b) "Ocean," and (c) "Monarch" images. (d) Compressed to 0.2673 bits/pixel, PSNR = 21:98 dB, MSSIM = 0:7118. (e) Compressed to 0.2980 bits/pixel, PSNR = 30:87 dB, MSSIM = 0:8886. (f) Compressed to 0.7755 bits/pixel, PSNR = 36:78 dB, MSSIM = 0:9898. (g), (h) and (i) show SSIM maps of the compressed images, where brightness indicates the magnitude of the local SSIM index (squared for visibility). (j), (k) and (l) show absolute error maps of the compressed images (contrast-inverted for easier comparison to the SSIM maps).</figDesc><graphic coords="9,381.31,438.83,144.34,108.34" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head></head><label></label><figDesc>(k), as is confirmed by their PSNR values. The SSIM index maps Figs. 7(h) and 7(i) deliver better consistency with perceived quality measurement.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>(</head><label></label><figDesc></figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7. Sample JPEG2000 images compressed to different quality levels (original size: 768 2 512; cropped to 256 2 192 for visibility). The original (a) "Stream," (b) "Caps," and (c) "Bikes" images, respectively. (d) Compressed to 0.1896 bits/pixel, PSNR = 23:46 dB, MSSIM = 0:7339. (e) Compressed to 0.1982 bits/pixel, PSNR = 34:56 dB, MSSIM = 0:9409. (f) Compressed to 1.1454 bits/pixel, PSNR = 33:47 dB, MSSIM = 0:9747. (g), (h) and (i) show SSIM maps of the compressed images, where brightness indicates the magnitude of the local SSIM index (squared for visibility). (j), (k) and (l) show absolute error maps of the compressed images (contrast-inverted for easier comparison to the SSIM maps).</figDesc><graphic coords="10,67.44,60.34,456.70,488.78" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Fig. 8 .</head><label>8</label><figDesc>Fig. 8. Scatter plots of subjective mean opinion score (MOS) versus model prediction. Each sample point represents one test image. (a) PSNR. (b) Sarnoff model (using Sarnoff JNDmetrix 8.0 [55]). (c) UQI [7] (equivalent to MSSIM with square window and K = K = 0). d) MSSIM (Gaussian window, K = 0:01; K = 0:03).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>TABLE I PERFORMANCE</head><label>I</label><figDesc>COMPARISON OF IMAGE QUALITY ASSESSMENT MODELS. CC: CORRELATION COEFFICIENT; MAE: MEAN ABSOLUTE ERROR; RMS: ROOT MEAN SQUARED ERROR; OR: OUTLIER RATIO; WMAE: WEIGHTED MEAN ABSOLUTE ERROR; WRMS: WEIGHTED ROOT MEAN SQUARED ERROR; SROCC: SPEARMAN RANK-ORDER CORRELATION COEFFICIENT</figDesc><table /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>A MATLAB implementation of the proposed algorithm is available online at http://www.cns.nyu.edu/~lcv/ssim/.</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>Available at http://www.sarnoff.com/products_services/video_viseon/jndmetrix/.</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head>ACKNOWLEDGMENT</head><p>The authors would like to thank <rs type="person">Dr. J. Malo</rs> and <rs type="person">Dr. Lu</rs> for insightful comments, <rs type="person">Dr. J. Lubin</rs> and <rs type="person">Dr. D. Dixon</rs> for providing the Sarnoff JNDmetrix software, <rs type="person">Dr. P. Corriveau</rs> and <rs type="person">Dr. J. Libert</rs> for supplying the routines used in VQEG Phase I FR-TV test for the regression analysis of subjective/objective data comparison, and <rs type="funder">Visual Delights, Inc.</rs> for allowing the authors to use their images for subjective experiments.</p></div>
+			</div>
+			<div type="funding">
+<div><p>The work of <rs type="person">Z. Wang</rs> and <rs type="person">E. P. Simoncelli</rs> was supported by the <rs type="funder">Howard Hughes Medical Institute</rs>. The work of <rs type="person">A. C. Bovik</rs> and <rs type="person">H. R. Sheikh</rs> was supported by the <rs type="funder">National Science Foundation</rs> and the <rs type="programName">Texas Advanced Research Program</rs>.</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funding" xml:id="_DqXpuzA">
+					<orgName type="program" subtype="full">Texas Advanced Research Program</orgName>
+				</org>
+			</listOrg>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Zhou Wang (S'97-A'01-M'02) received the B.S. degree from Huazhong University of Science and Technology, Wuhan, China, in 1993, the M.S. degree from South China University of Technology, Guangzhou, China, in 1995, and the Ph.D. degree from The University of Texas at Austin in 2001.</p><p>He  His research interests include using natural scene statistical models and human visual system models for image and video quality assessment. He was an Assistant Professor in the Computer and Information Science Eepartment at the University of Pennsylvania from 1993 to 1996. He moved to New York University in September 1996, where he is currently an Associate Professor in Neural Science and Mathematics. In August 2000, he became an Associate Investigator at the Howard Hughes Medical Institute, under their new program in computational biology. His research interests span a wide range of topics in the representation and analysis of visual images, in both machine and biological vision systems.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">What&apos;s wrong with mean-squared error</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Girod</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Digital Images and Human Vision</title>
+		<editor>
+			<persName><forename type="first">A</forename><forename type="middle">B</forename><surname>Watson</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cambridge, MA</addrLine></address></meeting>
+		<imprint>
+			<publisher>MIT Press</publisher>
+			<date type="published" when="1993">1993</date>
+			<biblScope unit="page" from="207" to="220" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Perceptual image distortion</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">C</forename><surname>Teo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">J</forename><surname>Heeger</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. SPIE</title>
+		<meeting>SPIE</meeting>
+		<imprint>
+			<date type="published" when="1994">1994</date>
+			<biblScope unit="volume">2179</biblScope>
+			<biblScope unit="page" from="127" to="141" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Image quality measures and their performance</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Eskicioglu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">S</forename><surname>Fisher</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Commun</title>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="page" from="2959" to="2965" />
+			<date type="published" when="1995-12">Dec. 1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Perceptual quality metrics applied to still image compression</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>Eckert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Bradley</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Signal Processing</title>
+		<imprint>
+			<biblScope unit="volume">70</biblScope>
+			<biblScope unit="page" from="177" to="200" />
+			<date type="published" when="1998-11">Nov. 1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">A perceptual distortion metric for digital color video</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Winkler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. SPIE</title>
+		<meeting>SPIE</meeting>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+			<biblScope unit="volume">3644</biblScope>
+			<biblScope unit="page" from="175" to="184" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Rate scalable Foveated image and video communications</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2001-12">Dec. 2001</date>
+			<publisher>Dept. Elect. Comput. Eng</publisher>
+			<pubPlace>Austin, Austin, TX</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Univ. Texas</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Ph.D. dissertation</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">A universal image quality index</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Bovik</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Signal Processing Letters</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page" from="81" to="84" />
+			<date type="published" when="2002-03">Mar. 2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Demo Images and Free Software for &apos;a Universal Image Quality Index</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<ptr target="http://anchovy.ece.utexas.edu/~zwang/research/quality_index/demo.html" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Why is image quality assessment so difficult</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Bovik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Lu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IEEE Int. Conf. Acoustics, Speech, and Signal Processing</title>
+		<meeting>IEEE Int. Conf. Acoustics, Speech, and Signal essing<address><addrLine>Orlando, FL</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2002-05">May 2002</date>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="3313" to="3316" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">The effects of a visual fidelity criterion on the encoding of images</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Mannos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">J</forename><surname>Sakrison</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Inform. Theory</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="525" to="536" />
+			<date type="published" when="1974">1974</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Perceptual criteria for image quality evaluation</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">N</forename><surname>Pappas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">J</forename><surname>Safranek</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Handbook of Image and Video Proc</title>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Bovik</surname></persName>
+		</editor>
+		<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>Academic</publisher>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Objective video quality assessment</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">R</forename><surname>Sheikh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Bovik</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The Handbook of Video Databases: Design and Applications</title>
+		<editor>
+			<persName><forename type="first">B</forename><surname>Furht</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">O</forename><surname>Marques</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Boca Raton, FL</addrLine></address></meeting>
+		<imprint>
+			<publisher>CRC Press</publisher>
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Issues in vision modeling for perceptual video quality assessment</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Winkler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Signal Processing</title>
+		<imprint>
+			<biblScope unit="volume">78</biblScope>
+			<biblScope unit="page" from="231" to="252" />
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Appearance of colored patterns: pattern-color separability</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">B</forename><surname>Poirson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">A</forename><surname>Wandell</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Opt. Soc. Amer. A: Opt. Image Sci</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="2458" to="2470" />
+			<date type="published" when="1993">1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">The cortex transform: rapid computation of simulated neural images</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">B</forename><surname>Watson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Vis., Graph., Image Process</title>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="page" from="311" to="327" />
+			<date type="published" when="1987">1987</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">The visible difference predictor: an algorithm for the assessment of image fidelity</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Daly</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Digital Images and Human Vision</title>
+		<editor>
+			<persName><forename type="first">A</forename><forename type="middle">B</forename><surname>Watson</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cambridge, MA</addrLine></address></meeting>
+		<imprint>
+			<publisher>MIT Press</publisher>
+			<date type="published" when="1993">1993</date>
+			<biblScope unit="page" from="179" to="206" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">The use of psychophysical data and models in the analysis of display system performance</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lubin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Digital Images and Human Vision</title>
+		<editor>
+			<persName><forename type="first">A</forename><forename type="middle">B</forename><surname>Watson</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cambridge, MA</addrLine></address></meeting>
+		<imprint>
+			<publisher>MIT Press</publisher>
+			<date type="published" when="1993">1993</date>
+			<biblScope unit="page" from="163" to="178" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">A model of perceptual image fidelity</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">J</forename><surname>Heeger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">C</forename><surname>Teo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IEEE Int. Conf. Image Processing</title>
+		<meeting>IEEE Int. Conf. Image essing</meeting>
+		<imprint>
+			<date type="published" when="1995">1995</date>
+			<biblScope unit="page" from="343" to="345" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Shiftable multi-scale transforms</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">P</forename><surname>Simoncelli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">T</forename><surname>Freeman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">H</forename><surname>Adelson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">J</forename><surname>Heeger</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Inform. Theory</title>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="page" from="587" to="607" />
+			<date type="published" when="1992">1992</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">DCT quantization matrices visually optimized for individual images</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">B</forename><surname>Watson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. SPIE</title>
+		<meeting>SPIE</meeting>
+		<imprint>
+			<date type="published" when="1993">1993</date>
+			<biblScope unit="volume">1913</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">DVQ: a digital video quality metric based on human vision</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">B</forename><surname>Watson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">F</forename><surname>Mcgowan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Iii</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Electron. Imaging</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="20" to="29" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Visibility of wavelet quantization noise</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">B</forename><surname>Watson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">Y</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Solomon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Villasenor</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Image Processing</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="1164" to="1175" />
+			<date type="published" when="1997-08">Aug. 1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">A wavelet visible difference predictor</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Bradley</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Image Processing</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="717" to="730" />
+			<date type="published" when="1999-05">May 1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">A Haar wavelet approach to compressed image quality measurement</title>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">K</forename><surname>Lai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C.-C</forename><forename type="middle">J</forename><surname>Kuo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Vis. Commun. Image Repres</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="17" to="40" />
+			<date type="published" when="2000-03">Mar. 2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Perceptual quality measure using a spatio-temporal model of the human visual system</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Van Den</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Branden</forename><surname>Lambrecht</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Verscheure</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. SPIE</title>
+		<meeting>SPIE</meeting>
+		<imprint>
+			<date type="published" when="1996">1996</date>
+			<biblScope unit="volume">2668</biblScope>
+			<biblScope unit="page" from="450" to="461" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Model of visual contrast gain control and pattern masking</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">B</forename><surname>Watson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Solomon</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Opt. Soc. Amer</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="2379" to="2391" />
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Picture quality evaluation based on error segmentation</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Hauske</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. SPIE</title>
+		<meeting>SPIE</meeting>
+		<imprint>
+			<date type="published" when="1994">1994</date>
+			<biblScope unit="volume">2308</biblScope>
+			<biblScope unit="page" from="1454" to="1465" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">An automatic image quality assessment technique incorporating high level perceptual factors</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Osberger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Bergmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Maeder</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IEEE Int. Conf. Image Processing</title>
+		<meeting>IEEE Int. Conf. Image essing</meeting>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+			<biblScope unit="page" from="414" to="418" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">The relationship between image fidelity and image quality</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Silverstein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Farrell</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IEEE Int. Conf. Image Processing</title>
+		<meeting>IEEE Int. Conf. Image essing</meeting>
+		<imprint>
+			<date type="published" when="1996">1996</date>
+			<biblScope unit="page" from="881" to="884" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Experimental evaluation of psychophysical distortion metrics for JPEG-encoded images</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">R</forename><surname>Fuhrmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Baro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Cox</surname><genName>Jr</genName></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Electron. Imaging</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="397" to="406" />
+			<date type="published" when="1995-10">Oct. 1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Measurement of visual impairment scales for digital video</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">B</forename><surname>Watson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Kreslake</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. SPIE-Human Vision, Visual Processing, and Digital Display</title>
+		<meeting>SPIE-Human Vision, Visual essing, and Digital Display</meeting>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+			<biblScope unit="volume">4299</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Suprathreshold wavelet coefficient quantization in complex stimuli: psychophysical evaluation and analysis</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">G</forename><surname>Ramos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">S</forename><surname>Hemami</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Opt. Soc. Amer. A</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="page" from="2385" to="2397" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Additivity models for suprathreshold distortion in quantized wavelet-coded images</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">M</forename><surname>Chandler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">S</forename><surname>Hemami</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Proc. SPIE-Human Vision and Electronic Imaging VII</title>
+		<imprint>
+			<biblScope unit="volume">4662</biblScope>
+			<date type="published" when="2002-01">Jan. 2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">An image processing model of contrast perception and discrimination of the human visual system</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Xing</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">SID Conf</title>
+		<meeting><address><addrLine>Boston, MA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2002-05">May 2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Visual detection of spatial contrast patterns: evaluation of five simple models</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">B</forename><surname>Watson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Opt. Exp</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="12" to="33" />
+			<date type="published" when="2000-01">Jan. 2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Statistical models for images: compression, restoration and synthesis</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">P</forename><surname>Simoncelli</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc 31st Asilomar Conf. Signals, Systems and Computers</title>
+		<meeting>31st Asilomar Conf. Signals, Systems and Computers<address><addrLine>Pacific Grove, CA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1997-11">Nov. 1997</date>
+			<biblScope unit="page" from="673" to="678" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Information-theoretic analysis of interscale and intrascale dependencies between image wavelet coefficients</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Moulin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Image Processing</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page" from="1647" to="1658" />
+			<date type="published" when="2001-11">Nov. 2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Embedded image coding using zerotrees of wavelets coefficients</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Shapiro</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Signal Processing</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="page" from="3445" to="3462" />
+			<date type="published" when="1993-12">Dec. 1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">A new, fast, and efficient image codec based on set partitioning in hierarchical trees</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Said</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">A</forename><surname>Pearlman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Circuits Syst. Video Technol</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="243" to="250" />
+			<date type="published" when="1996-06">June 1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Image compression via joint statistical characterization in the wavelet domain</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">W</forename><surname>Buccigrossi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">P</forename><surname>Simoncelli</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Image Processing</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="1688" to="1701" />
+			<date type="published" when="1999-12">Dec. 1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">S</forename><surname>Taubman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">W</forename><surname>Marcellin</surname></persName>
+		</author>
+		<title level="m">JPEG 2000: Image Compression Fundamentals, Standards, and Practice</title>
+		<meeting><address><addrLine>Norwell, MA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Kluwer</publisher>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">A new model of human luminance pattern vision mechanisms: analysis of the effects of pattern orientation, spatial phase, and temporal frequency</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Foley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">M</forename><surname>Boynton</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. SPIE-Computational Vision Based on Neurobiology</title>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Lawton</surname></persName>
+		</editor>
+		<meeting>SPIE-Computational Vision Based on Neurobiology</meeting>
+		<imprint>
+			<date type="published" when="1994">1994</date>
+			<biblScope unit="volume">2054</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Natural signal statistics and sensory gain control</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Schwartz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">P</forename><surname>Simoncelli</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature: Neuroscience</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="819" to="825" />
+			<date type="published" when="2001-08">Aug. 2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Natural image statistics and divisive normalization: modeling nonlinearity and adaptation in cortical neurons</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">J</forename><surname>Wainwright</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Schwartz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">P</forename><surname>Simoncelli</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Probabilistic Models of the Brain: Perception and Neural Function</title>
+		<editor>
+			<persName><forename type="first">R</forename><surname>Rao</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">B</forename><surname>Olshausen</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Lewicki</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cambridge, MA</addrLine></address></meeting>
+		<imprint>
+			<publisher>MIT Press</publisher>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Non-linear invertible representation for joint statistical and perceptual feature decorrelation</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Malo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Navarro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Epifanio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Ferri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Artigas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Lecture Notes on Computer Science</title>
+		<imprint>
+			<biblScope unit="volume">1876</biblScope>
+			<biblScope unit="page" from="658" to="667" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Linear transform for simultaneous diagonalization of covariance and perceptual metric matrix in image coding</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Epifanio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Gutiérrez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Malo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Pattern Recognit</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="page" from="1799" to="1811" />
+			<date type="published" when="2003-08">Aug. 2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Joint photographic experts group (JPEG) compatible data compression of mammograms</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">F</forename><surname>Good</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">S</forename><surname>Maitz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Gur</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Dig. Imaging</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="123" to="132" />
+			<date type="published" when="1994">1994</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Image quality metric based on multidimensional contrast perception models</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pons</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Malo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Artigas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Capilla</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Displays</title>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="page" from="93" to="110" />
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Visual performance</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">S</forename><surname>Geisler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Banks</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Handbook of Optics</title>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Bass</surname></persName>
+		</editor>
+		<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>McGraw-Hill</publisher>
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Embedded foveation image coding</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Bovik</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Image Processing</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page" from="1397" to="1410" />
+			<date type="published" when="2001-10">Oct. 2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Algorithms for defining visual regions-of-interest: comparison with eye fixations</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Privitera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">W</forename><surname>Stark</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Pattern Anal. Machine Intell</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="page" from="970" to="982" />
+			<date type="published" when="2000-09">Sept. 2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Image features that draw fixations</title>
+		<author>
+			<persName><forename type="first">U</forename><surname>Rajashekar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">K</forename><surname>Cormack</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Bovik</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IEEE Int. Conf. Image Processing</title>
+		<meeting>IEEE Int. Conf. Image essing<address><addrLine>Barcelona, Spain</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2003-09">Sept. 2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<monogr>
+		<title level="m" type="main">The SSIM Index for Image Quality Assessment</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<ptr target="http://www.cns.nyu.edu/~lcv/ssim/" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Quality assessment of coded images using numerical category scaling</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Van Dijk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">B</forename><surname>Martens</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">B</forename><surname>Watson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. SPIE</title>
+		<meeting>SPIE</meeting>
+		<imprint>
+			<date type="published" when="1995">1995</date>
+			<biblScope unit="volume">2451</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<monogr>
+		<title level="m" type="main">Image and Video Quality Assessment Research at LIVE</title>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">R</forename><surname>Sheikh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Bovik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">K</forename><surname>Cormack</surname></persName>
+		</author>
+		<ptr target="http://live.ece.utexas.edu/research/quality/" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title level="a" type="main">A visual discrimination model for imaging system design and evaluation</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lubin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Visual Models for Target Detection and Recognition</title>
+		<editor>
+			<persName><forename type="first">E</forename><surname>Peli</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Singapore</addrLine></address></meeting>
+		<imprint>
+			<publisher>World Scientific</publisher>
+			<date type="published" when="1995">1995</date>
+			<biblScope unit="page" from="245" to="283" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">Image dissimilarity</title>
+		<author>
+			<persName><forename type="first">J.-B</forename><surname>Martens</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Meesters</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Signal Processing</title>
+		<imprint>
+			<biblScope unit="volume">70</biblScope>
+			<biblScope unit="page" from="155" to="176" />
+			<date type="published" when="1998-11">Nov. 1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<monogr>
+		<author>
+			<persName><surname>Vqeg</surname></persName>
+		</author>
+		<ptr target="http://www.vqeg.org/" />
+		<title level="m">Final Report From the Video Quality Experts Group on the Validation of Objective Models of Video Quality Assessment</title>
+		<imprint>
+			<date type="published" when="2000-03">2000, Mar.</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

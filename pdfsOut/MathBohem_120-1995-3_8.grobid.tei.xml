@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">a-COMPACT FUZZY TOPOLOGICAL SPACES</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">S</forename><forename type="middle">S</forename><surname>Thakur</surname></persName>
+						</author>
+						<author>
+							<persName><roleName>Jabalpur</roleName><forename type="first">R</forename><forename type="middle">K</forename><surname>Saraf</surname></persName>
+						</author>
+						<title level="a" type="main">a-COMPACT FUZZY TOPOLOGICAL SPACES</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">89B079523B8B0E9DD97CD12CC7A9E79F</idno>
+					<note type="submission">Received March 23, 1994</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.1-SNAPSHOT" ident="GROBID" when="2024-03-05T19:01+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>fuzzy topological spaces</term>
+					<term>compactness</term>
+					<term>a-compactness</term>
+					<term>a-open</term>
+					<term>fuzzy acontinuity AMS classification: 54A40</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The purpose of this paper is to introduce and</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">INTRODUCTION</head><p>The concept of fuzzy sets and fuzzy set operations was first introduced by Zadeh in his classical paper <ref type="bibr" target="#b6">[7]</ref>. Subsequently several authors have applied various basic concepts from general topology to fuzzy sets and developed a theory of fuzzy topological spaces. The concept of a-compactness for topological spaces has been discussed in <ref type="bibr" target="#b4">[5]</ref>. The purpose of this paper is to introduce and study a-compactness for fuzzy topological spaces, thus filling a gap in the existing literature on fuzzy topological spaces.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">DEFINITIONS</head><p>Throughout this paper (X, T) will denote a fuzzy topological space. If A is a fuzzy set in a fuzzy topological space then the closure and interior of A will be as usual denoted by C\A and Int A, respectively. We now introduce the following definitions. Definition 2.6. Let (X, T) and (Y, S) be fuzzy topological spaces and let T{ be a fuzzy topology on X which has Fa(X) as a subbase. A mapping /: X -4 Y is called fuzzy ^-continuous if /: (X,T() -4 (Y,S) is fuzzy continuous; / is said to be fuzzy ^'-continuous if /: (X,T{) -4 (Y,S{) is fuzzy continuous.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">RESULTS</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Theorem 3.1. Let (X, T) and (Y, S) be fuzzy topological spaces and let T? be a fuzzy topology on X which has Fa(X) as a subbase. If f: (X,T) -¥ (Y,S) is fuzzy a-continuous, then f is fuzzy ^-continuous.</head><p>Proof. Let / be fuzzy a-continuous and let V 6 S. Then / -1 (V) e Fa(X) and so / -1 (V) £ 7$. Thus / is fuzzy ^-continuous and this completes the proof.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D Theorem 3.2. Let (X,T) and (Y,S) be fuzzy topological spaces. Let T$ and 5{ be respectively the fuzzy topologies on X and Y which have Fa(X) and Fa(Y) as subbases. If f: (X, T) -4 (Y, S) is fuzzy a-irresolute then f is fuzzy £'-continuous.</head><p>Proof. Let / be fuzzy a-irresolute and let V e S{. Then V = (J C p| S;". \ where S,". 6 Fa(Y, S), i 4=i ' and</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>rЧv)^r l ({j(n^)-ö(Qr^))-</head><p>Since / is fuzzy a-irresolute, / -1 (Si";) 6 Fa(X,T). This implies that / X (K) e Hence A n B is T^-compact. Therefore A n B is a-compact and this completes the proof. D</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Definition 2 . 1 .Definition 2 . 2 .</head><label>2122</label><figDesc>Let A be a fuzzy subset of a fuzzy topological space X. A is said to be fuzzy a-open if A C Int CI Int A. The set of all fuzzy a-open subsets of X will be denoted by Fa{X). In a fuzzy topological space (X, T), a family v of fuzzy subsets of X is called an a-covering of X iff v covers X and v C Fa(X). Definition 2.3. A fuzzy topological space (X, T) is said to be a-compact if every a-open cover of X has a finite subcover. Definition 2.4. Let (X,T) and (Y, S) be fuzzy topological spaces. A mapping /: X -4 Y is called fuzzy a-continuous if the inverse image of each fuzzy open set in Y is fuzzy a-open in X. Definition 2.5. A mapping /: X -&gt; Y is said to be fuzzy a-irresolute if the inverse image of every fuzzy a-open set in Y is fuzzy a-open in X.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>T{ and thus / is fuzzy ^'-continuous. E relative to X. Hence by Theorem 3.4, G is T?-compact. So there exists a finite subset I0 C I such that Gc(J{r 1 (V A ): / 9,e/o} and so /(G) C {V0i: A 6 /"}. Hence /(G) is T^-compact relative to Y. Thus /(G) is a-compact relative to Y and this completes the proof. D Corollary 3.8. Iff: (X,T) -» (Y, S) is a fuzzy £'-continuous surjective function and X is a-compact, then Y is a-compact. Corollary 3.9. If f: (X,T)-&gt; (Y, S) is a fuzzy a-irresolute surjective function and X is a-compact then Y is a-compact. Theorem 3.10. Let A and B be fuzzy subsets of a fuzzy topological space X such that A is a-compact relative to X and B is T^-closed in X. Then An B is a-compact relative to X. Proof. Let {Vp{: ft e 1} be a cover of A n B by Tj-open fuzzy subsets of X. Since X -B is a T^-open fuzzy set, {VPi :/3ieI}U(X-B) is a cover of A. A is a-compact and thus T^-compact relative to X. Hence there exists a finite subset I0 C I such that A C {}{VPi: fc e I0} U(X-B). Therefore AnB Cljffis.: A €Io}.</figDesc></figure>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Theorem 3.3. A fuzzy topological space X is a-compact if and only if every family of fuzzy a-closed subsets of X with finite intersection property has non-empty intersection.</p><p>Proof. Evident. D Theorem 3.4. Let (X,T) be a fuzzy topological space and T( a fuzzy topology on X which has Fa(X) as a subbase. Then (X,T) is a-compact if and only if (X ,T() is compact.</p><p>Proof. Let (X,T() be compact. Then, since Fa(X) C T?, it follows that (X, T) is a-compact. D Theorem 3.5. Let (X, T) be a fuzzy topological space which is a-compact. Then each T^-closed fuzzy set in X is a-compact.</p><p>Proof. Let U be any Trclosed fuzzy set in X. Let {Vpi: ft e /} be a Tropen cover of U. Since X -U is Tropen, {V0i: ft e /} U (X -U) is a Tropen cover of X. Since X is Trcompact, by Theorem 3.4 there exists a finite subset Io C I such that</p><p>This implies that U C \J{V0I: Pi e Io}.</p><p>Hence U is a-compact relative to X and this completes the proof. D Theorem 3.6. Let a fuzzy topological space (X,T) be a-compact. Then every family ofT(-closed fuzzy subsets ofX with finite intersection property has non-empty intersection.</p><p>Proof. Let X be a-compact. Let U = {B0i : ft e /} be any family of Trclosed fuzzy subsets of X with finite intersection property. Suppose fli-Bft : ft e /} = 0.</p><p>Then {X -B0i : ft e /} is a Tropen cover of X. Hence it must contain a finite subcover {X -BSij: j = l,2,...,n} for X. This implies that f]{B0ij: j = 1,2,... ,n} = 0 and contradicts the assumption that U has finite intersection property. D Theorem 3.7. Let X and Y be fuzzy topological spaces and let f: X -¥ Y be fuzzy £' -continuous. If a fuzzy subset G of X is a-compact relative to X, then f(G) is a-compact relative to Y.</p><p>Proof. Let {Vp.: ft e /} be a cover of f(G) by 5ropen fuzzy sets in Y. Then {/" (Vp^: Pi e /} is a cover of G by Tropen fuzzy sets in X. G is a-compact Authors' addresses: S. S. Thakur, Department of Applied Mathematics, Government Engineering College, Jabalpur (M.P.), India 482011, R.K. Saraf Department of Mathematics, Government Autonomous Science College, Jabalpur (M.P.), India 482001.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Fuzzy topological spaces</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">L</forename><surname>Chang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Math. Anal</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="page" from="182" to="190" />
+			<date type="published" when="1968">1968</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">On some classes of nearly open sets</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Njdsted</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Pacific J. Math</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="961" to="970" />
+			<date type="published" when="1976">1976</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">On a-irresolute mapping</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">N</forename><surname>Maheshwari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">S</forename><surname>Thakur</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Tamkang J. Math</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="209" to="214" />
+			<date type="published" when="1980">1980</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">On a-continuous mapping</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">N</forename><surname>Maheshwari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">S</forename><surname>Thakur</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Ind. Acad. Math</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="46" to="50" />
+			<date type="published" when="1985">1985</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">On a-compact spaces</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">N</forename><surname>Maheshwari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">S</forename><surname>Thakur</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Bull. Inst. Math. Acad. Sinica</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page" from="341" to="347" />
+			<date type="published" when="1985">1985</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">El-deeb: a-continuous and a-open mappings</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Mashhour</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">A</forename><surname>Hassanian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">N</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Acta Math. Sci. Hungar</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="page" from="213" to="218" />
+			<date type="published" when="1983">1983</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Fuzzy sets</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">A</forename><surname>Zadeh</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Inform and control</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="338" to="353" />
+			<date type="published" when="1965">1965</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

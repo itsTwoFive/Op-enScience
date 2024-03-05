@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">The Hospital Anxiety and Depression Scale</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Zigmond</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">R</forename><forename type="middle">P</forename><surname>Snaith</surname></persName>
+						</author>
+						<title level="a" type="main">The Hospital Anxiety and Depression Scale</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">B1A6415C0CB696B7B16CE2AF519898C2</idno>
+					<note type="submission">Received December 3, 1982; accepted for publication December 12, 1982 I</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.1-SNAPSHOT" ident="GROBID" when="2024-03-05T19:01+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Psychiatric status rating scales</term>
+					<term>anxiety disorders</term>
+					<term>depressive disorders</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>A self-assessment scale has been developed and found to be a reliable instrument for detecting states of depression and anxiety in the setting of an hospital medical outpatient clinic. The anxiety and depressive subscales are also valid measures of severity of the emotional disorder. It is suggested that the introduction of the scales into general hospital practice would facilitate the large task of detection and management of emotional disorder in patients under investigation and treatment in medical and surgical departments.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The prevalence of psychiatric disorder in non-psychiatric hospital clinics is certainly high <ref type="bibr" target="#b0">(1,</ref><ref type="bibr" target="#b1">2,</ref><ref type="bibr" target="#b2">3)</ref>. Sometimes emotional disorder is a result of the stress caused by physical disability but somatic symptoms which lead to referral to medical and surgical departments may be a manifestation of anxiety or depressive states and have no basis in organic pathology; finally a neurosis may coexist with a physical illness causing the patient to be more distressed by the symptoms of the illness which may lead to a complicated clinical presentation, a poor response to treatment and, frequently, unnecessary investigation and referral to other departments of the hospital.</p><p>Physicians and surgeons are usually aware of the emotional components of their patients' illnesses but, under pressure of work in busy hospital clinics, they have little time to sort out how the neu-2S rosis contributes to the disorder or from just what form of neurosis the patient is suffering. It is therefore probable that clinicians would be helped by a reliable screening test for psychiatric disorder. The development and refinement of questionnaires whereby patients themselves assess their symptoms is leading to an increasing use of such instruments <ref type="bibr" target="#b3">(4)</ref> and, in the field of psychiatric epidemiology, the many issues related to case definition and identification have been reviewed by Williams et al. <ref type="bibr" target="#b4">(5)</ref>. The instrument which has been studied most widely in a variety of contexts is the General Health Questionnaire <ref type="bibr" target="#b5">(6)</ref> but this has two main disadvantages: it is rather long and it detects a 'case' but gives no information about the nature of the psychiatric disorder. These objections have been partly overcome in a modification of the original questionnaire (7) but we considered that there was a need for the development of a self-assessment mood scale specifically designed for use in non-psychiatric hospital departments.</p><p>Since patients would be expected to complete the questionnaire in a short space of time, perhaps whilst waiting to see the clinician, we decided that the scale should be brief and limited to the two most common aspects of neurosis presenting in hospital practice: anxiety and depression.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Method</head><p>Two common objections to questionnaires concerned with mood disorders are that scores are affected by the physical illness of the patient and that there is insufficient distinction between one mood disorder and another. In order to lessen the effect of the first of these failings, all items relating both to emotional disorder and physical disorder, e.g. 'dizziness' and 'headaches' were eliminated and the items selected were based solely on the psychic symptoms of neurosis. We also aimed to define carefully and distinguish between the• concepts of anxiety and depression. The eight items composing the depression subscale were largely based on the anhedonic state since this is probably the central psychopathological feature of that form of depression which responds well to antidepressant drug treatment <ref type="bibr" target="#b7">(8)</ref>, and therefore provides the most useful information for the clinician. The eight items composing the anxiety subscale were chosen from a study of the appropriate section of the Present State Examination (9) and also from personal research <ref type="bibr" target="#b9">(10)</ref> into the psychic manifestations of anxiety neurosis.</p><p>Assessment of the overall severity of anxiety and depression were both rated on five-point (0-4) scales by the researchers. The mandatory questions for anxiety were: "Do you ever feel tensed up?" "Worry a lot?" "Have panic attacks?" "Feel something awful is about to happen?". The mandatory questions for depressions were: "Do you take as much interest in things as you used to?" "Laugh as readily?" "Do you feel cheerful?" "Feel generally optimistic about the future?". The psychiatric assessment for each patient lasted about 20 min.</p><p>The research was conducted in general medical outpatient clinics on adults of both sexes between the ages of 16 and 65 who suffered from a wide variety of complaints and illnesses. The routine was for the nurse to ask patients to complete the questionnaire whilst they were waiting to see the clinician: she informed the patient that the project concerned research into emotional concomitants of physical illness and that there was no obligation to take part, but in fact only two out of over 100 patients refused to do so. After the examination by the clinician the patient was interviewed by the researchers in a separate room and the assessment of the level of anxiety and depression was made without any knowledge of the scores on the self-assessment scale. We conducted all interviews jointly until we were confident that we had standardized our interview technique and were allotting similar ratings, following which we sometimes saw patients singly.</p><p>A further aspect of the research was to issue the rating scale to clinical, secretarial and technical staff in the hospital. They were requested to complete it anonymously giving only their age and sex but answering two further questions on a separate sheet which related to whether they were under treatment, or thought that they should receive treatment, for any form of 'nervous disorder' and the rating scale of any respondent who replied positively to either of these questions was discarded.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Results</head><p>Following the accumulation of data on 50 patients the internal consistency of the two subscales was examined by calculating correlations (Spearman) between each item and the total score of the remaining items in the subscale. For the anxiety items the correlations ranged from +0.76 to +0.41 and the significance of all these was P &lt; 0.01. The analysis of the depression scale items revealed one weak item, i.e. "I am awake before I need to get up" r = 0.11, NS. The remaining items in the depression scale had correlations ranging from + 0.60 to + 0.30, all significant beyond P &lt; 0.02. The weak item was removed and, in order to keep the balance (seven items in each subscale) the weakest of the anxiety items were also removed. The final version of the scale incorporating a rapid scoring device, and the borderline range of scores for each subscale, is given in the Appendix.</p><p>For the next part of the preliminary analysis (of the first 50 patients) we considered psychiatric ratings of 0 and 1 to be non-cases, ratings of 2 to be doubtful cases and ratings of 3 and 4 to be definite cases. We then considered various possible scores on the subscales in order to In order to test the reliability of these findings the same criteria were applied to the data of the next 50 patients; the results were similar and the subscale score ranges were definitively adopted. The data for the total 100 patients is shown in Table <ref type="table" target="#tab_0">1</ref> which shows that for the depression subscale there are 1 % false positives and 1 % false negatives and for the anxiety subscale there are 5 % false positives and 1 % false negatives.</p><p>The next part of the analysis was to examine the data in order to determine whether scores on the two subscales could also be used as indications of the severity of depression and anxiety respectively. In order to do this, correlations (Spearman) of the subscale scores and the psychiatric ratings were calculated; the results of this were, for depression r = 0.70, and for anxiety r = +0.74. Both these figures are significant (P &lt; 0.001) and it was concluded that the subscale scores could justifiably be used as measures of severity.</p><p>It was then necessary to determine whether the anxiety and depression subscales detected different aspects of mood disorder or, alternatively, were so closely related that they could be considered to be estimating much the same thing, e.g. a general index of emotional disturbance. In order to do this it should be recognized that, in clinical practice, many patients suffer from similar degrees of both anxiety and depression; this was also the case with our sample. It is therefore clear that high correlations between the estimates of anxiety and depression would be expected in any sample containing a high proportion of patients with similar degrees of both disorders. In order to overcome this difficulty we selected, from our sample, all those patients in whom there was a distinct difference between the interviewers' assessments of the severity of anxiety and depression. We examined the data of those patients in which there was a difference of 2 or more points in the severity; there were 17 such patients. The results of this analysis are shown in Table <ref type="table" target="#tab_2">2</ref> and it is clear that, whereas the patientrated subscales correlate significantly with the interviewers' assessments of the appropriate mood disorder, there are insig-nificant correlations between the contrary disorders. Although the size of the subsample selected as described is small, these findings give some support to the view that the subscales do in fact assess different aspects of mood disorder.</p><p>Finally, in order to determine whether or not the subscale scores were influenced by physical illness apart from mood disorder, all those sets of data with anxiety psychiatric ratings of 0 and 1 and depression psychiatric ratings of 0 and 1 were extracted. These were matched for age and sex with the normal sample and the difference was tested by Student's t-test. For the depression subscale scores t = 0.17 (NS) and for the anxiety subscale scores t = 0.59 (NS). It was therefore concluded that physically ill patients, who were not assessed as having mood disorder, had similar scores to the normal sample and that scale scores were therefore not affected by physical illness.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Discussion</head><p>The Hospital Anxiety and Depression Scale (to be abbreviated: HAD Scale) is presented as a reliable instrument for screening for clinically significant anxiety and depression in patients attending a general medical clinic. This scale has also been shown to be a valid measure of the severity of these disorders of mood and therefore the repeated administration of the scale at subsequent visits to the clinic will give the physician useful information concerning progress.</p><p>Williams and his colleagues (op. cit.) have outlined the many problems which beset the construction of the rating scales and these will now be discussed in relation to the HAD Scale. Mild (or neurotic) psychiatric disorder cannot be considered to be either present or absent since the degree of distress is continuously distributed in the population. Questions related to "how much?" are more relevant than those related to "is it present?". For this reason scales related to mood disorders are rriore in accord with reality if they are presented in terms of score ranges which indicate the probable absence, possible presence, and probable presence of clinically meaningful degrees of the mood disorder. The HAD Scale is presented with these score ranges for both its subscales. If the scale is to be used in research the cut off point for a 'case' may be either the upper or lower end of the borderline range. Where the research requires the inclusion of only those patients who have a high probability of suffering from the mood disorder, i.e. a low proportion of false positives; then the upper end of the borderline score range (10/11 for each of the subscales) should be used. However, should the research require inclusion of all possible cases, i.e. a low proportion of false negatives, the lower end of the borderline score range (8/9 for each of the subscales) should be used.</p><p>The selection of items for inclusion in mood scales for use in patients suffering from bodily disease required considerable thought. Symptoms of somatic reference such as headache and dizziness obviously require exclusion. It was also necessary to exclude symptoms which might equally arise from somatic as from mental disease such as insomnia, anergia, fatigue and pessimism about the future. Symptoms relating to severe mental disorder (such as suicidal preoccupation or phobic limitation) were excluded; although such symptoms are common in patients attending psychiatric clinics they are less common in patients attending other hospital clinics and are therefore less likely to be useful. One further factor in determining the selection of items for inclusion was the necessity to achieve the maximum possible separation between the concepts of anxiety and depression.</p><p>The final selection of anxiety items was guided by recent research <ref type="bibr" target="#b9">(10)</ref> into the item analysis and revision of the Hamilton Anxiety Scale. The selection of items for the depression scale was limited by the foregoing considerations. The concept of anhedonia was predominant in the scale and 5 of the 7 depression subscale items related to the loss of the pleasure response; however, reasons were given earlier for considering anhedonia, rather than such concepts as sadness or demoralization, to be the central psychopathological feature of mild biogenic depressive illness.</p><p>The matter of the optimal number of items to be included in the scale is still a matter for debate. A recent study comparing depression scales <ref type="bibr" target="#b10">(11)</ref> showed that some assessment scales with 5 and 8 items performed as well as each other and both were better than a scale with 12 items. Moreover the work of Snaith and his colleagues (op. cit.) showed that the number of items (varying between 4 and 10) composing the scale made little difference to its performance. The HAD Scale contains 7 items in each subscale.</p><p>The time period over which the severity of a disorder is to be assessed is a most important consideration and, as Williams and his colleagues (op. cit.) pointed out, some self -assessment scales are imprecise concerning this matter. An attempt has been made to be precise in the construction of the HAD Scale. The aim was that the score should reflect the present state of mood; however, if the patient is instructed to complete a scale as he feels now he may interpret the instruction too literally and his mood, especially anxiety, is very likely to be raised by attendance at the clinic. A compromise was there-fore made and in the preamble to the scale the patient is instructed to complete it in order to reflect how he has felt during the past week.</p><p>An attempt has been made to overcome response bias in the scale by alternating the order of responses so that to one item the first response indicates maximum severity and to another item the last response indicated maximum severity. The choice of four responses to each item was adopted in order to prevent the patient from opting for a middle grade to all the items. The matter of the incorporation of a scoring device with the questionnaire requires careful consideration. The requirement for a rapid and accurate means to arrive at the patient's score is a fundamental requirement for the successful use of a rating scale. If this is to be supplied separately as a scoring device it requires commercial involvement, expense and inconvenience to the user. Although it is our experience, from long use of such an incorporated scoring device with other scales, that its presence makes little or no difference to the patient's completion of the scale, it may be objected that the column of numbers may distract or influence the patient. It is therefore advised that the HAD Scale should be reproduced on paper which enables the scoring device to be folded back, as shown in the Appendix (p. 368), before it is given to the patient.</p><p>It should be pointed out that the HAD Scale has been constructed from data supplied by outpatients between the ages of 16 and 65 attending general medical clinics. There is no reason to suppose that its use would be invalid in patients attending other hospital clinics but further research is needed to validate its use in elderly patients or patients who have been admitted to hospital. Until the necessary work has been done it is advised that the HAD Scale should be supplemented by a brief interview in these groups of patients.</p><p>The scale was found to be very acceptable to the patients who had no difficulty in understanding its purpose and completing it. Nurses who issued the scale said that patients showed considerable interest and frequently commented that doctors should take more account of emotional disorder. Nevertheless a degree of tact should be observed in the use of the scale in routine clinical practice. Patients should be asked to read the preamble carefully before completing it and nothing should be said to indicate that this response to the scale will lead to the consideration that he is malingering or will necessarily be referred for psychiatric examination.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conclusion</head><p>In the construction of this self -assessment scale for use in general hospital outpatient departments care has been taken to attend to many points which have recently been stressed to be of importance in the construction of such scales. An attempt has been made to separate the concepts of depression and anxiety and it was found that this had been successful. Care was taken to separate the concepts in emotional and somatic illness and evidence is presented that the scale scores are not affected by the presence of bodily illness. The HAD Scale is likely to prove to be an efficient screening instrument and ranges of scores are given in order that the proportion of false positives or false negatives may be minimized. For ordinary clinical use the inclusion of a borderline score range is in accord with clinical experience. The scale may prove to be a useful device for assessing change in a patient's emotional state as well as for assessing presence or absence of clinically significant degrees of anxiety and depression.</p><p>Versions of the scale in Arabic, Dutch, French, German, Hebrew, Swedish, Italian and Spanish are available, at no charge, on application to R. P. Snaith.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1</head><label>1</label><figDesc>Numbers of patients in each category according to subscale scores</figDesc><table><row><cell></cell><cell>Depression</cell><cell></cell><cell></cell></row><row><cell>Scale scores</cell><cell>Non-cases</cell><cell>Doubtful cases</cell><cell>Cases</cell></row><row><cell>0-7</cell><cell>57</cell><cell>11</cell><cell>1</cell></row><row><cell>8-10</cell><cell>8</cell><cell>7</cell><cell>3</cell></row><row><cell>11-21</cell><cell>1</cell><cell>4</cell><cell>8</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 2</head><label>2</label><figDesc></figDesc><table><row><cell cols="3">Correlations between interview ratings and</cell></row><row><cell cols="2">patient ratings of subsample</cell><cell></cell></row><row><cell></cell><cell cols="2">Interview ratings</cell></row><row><cell>Patient ratings</cell><cell>Anxiety</cell><cell>Depression</cell></row><row><cell>Anxiety</cell><cell>+ 0.54*</cell><cell>+ 0.19</cell></row><row><cell>Depression</cell><cell>+ 0.08</cell><cell>+ 0.79**</cell></row><row><cell>* p &lt; 0.05 ** p &lt; 0.01</cell><cell></cell><cell></cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head>Acknowledgements</head><p>We wish to thank <rs type="person">Prof. Losowsky</rs>, <rs type="person">Dr. K. J. A . Miloszewski</rs> and <rs type="person">Dr. A. V. Simmons</rs> and the staffs of their clinics for their interest and help in this work.</p></div>
+			</div>			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Psychiatric illness in a general hospital</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Shepherd</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Davis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Culpan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Acta Psychiatr Scand</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="page" from="518" to="525" />
+			<date type="published" when="1960">1960</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Psychiatric morbidity and referral on two general medical wards</title>
+		<author>
+			<persName><forename type="first">G P</forename><surname>Maguire</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">L</forename><surname>Julier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">E</forename><surname>Hawton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bancroft</forename><forename type="middle">J H J</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Br Med J</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="268" to="270" />
+			<date type="published" when="1974">1974</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Depression in medical in-patients</title>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">S</forename><surname>Moftic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Paykel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Br J Psychiatry</title>
+		<imprint>
+			<biblScope unit="volume">126</biblScope>
+			<biblScope unit="page" from="346" to="353" />
+			<date type="published" when="1975">1975</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Questionnaires in medicine</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">E</forename><surname>Bennett</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ritchie</forename><forename type="middle">K</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Published for the Nuftield Provincial Hospitals Trust by the</title>
+		<meeting><address><addrLine>New York, Toronto</addrLine></address></meeting>
+		<imprint>
+			<publisher>Lon-don</publisher>
+			<date type="published" when="1975">1975</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Case definition and case identification in psychiatric epidemiology: Review and assessment</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Williams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tamopolsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Hand</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Psychol Med</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page" from="101" to="114" />
+			<date type="published" when="1980">1980</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><surname>Goldberg</surname></persName>
+		</author>
+		<title level="m">The detection of psychiatric illness by questionnaire</title>
+		<meeting><address><addrLine>London</addrLine></address></meeting>
+		<imprint>
+			<publisher>Oxford University Press</publisher>
+			<date type="published" when="1972">1972</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">A scaled version of the General Health Questionnaire</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Goldberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Hillier</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Psychol Med</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page" from="139" to="146" />
+			<date type="published" when="1979">1979</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Endogenomorphic depression</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Klein</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Arch Gen Psychiatry</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="page" from="447" to="454" />
+			<date type="published" when="1974">1974</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">K</forename><surname>Wing</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Cooper</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Sartorius</surname></persName>
+		</author>
+		<title level="m">The measurement and classification of psychiatric symptoms</title>
+		<meeting><address><addrLine>London</addrLine></address></meeting>
+		<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="1974">1974</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">The Clinical Anxiety Scale: a modification of the Hamilton Anxiety Scale</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">P</forename><surname>Snaith</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S J</forename><surname>Baugh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Clayden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hussain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sipple</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Br J Psychiatry</title>
+		<imprint>
+			<biblScope unit="volume">141</biblScope>
+			<biblScope unit="page" from="518" to="523" />
+			<date type="published" when="1982">1982</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">A comparisL_ of depression rating scales</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">P</forename><surname>Keams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C A</forename><surname>Cruikshank</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Mcguigan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S A</forename><surname>Riley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S P</forename><surname>Shaw</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Snaith</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Br J Psychiatry</title>
+		<imprint>
+			<biblScope unit="volume">141</biblScope>
+			<biblScope unit="page" from="45" to="49" />
+			<date type="published" when="1982">1982</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Address</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">B</forename><surname>Zigmond</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">R C R P</forename><surname>Psych</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Snaith</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">R C</forename><surname>Psych</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Dept. of Psychiatry</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<pubPlace>Hyde Terrace Leeds LS2 9LT England</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Address for correspondence</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>
