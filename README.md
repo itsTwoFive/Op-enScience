@@ -12,7 +12,7 @@ This repository contains 3 Scripts that using already analyzed pdf with grobid w
 ## Requirements
 In orther to run the script your machine should count with the following dependencies:
 - Grobid server 0.8.1-SNAPSHOT*
-- Python 3.11 or above
+- Python 3.12 or above
 - matplotlib 3.8.3
 - grobid-client 0.8.5*
 - wordcloud 1.9.3
