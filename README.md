@@ -61,7 +61,7 @@ docker network create redOS
 2. Create both groboid server and the project's container. These commands should be runned in background or in different terminals due these blocks the terminal.
 ```
 docker run --rm --name grobid --network redOS --init --ulimit core=0 -p 8070:8070 grobid/grobid:0.8.1-SNAPSHOT
-run --name osproj --network redOS itstwofive/openscience:0.1.2
+docker run --name osproj --network redOS itstwofive/openscience:0.1.2
 ```
 3. To Acces the container we created you should run
 ```
